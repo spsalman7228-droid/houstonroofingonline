@@ -1,0 +1,173 @@
+{
+  "_readme": "Concept-site content for Houston Roofing & Construction. Facts come from public sources. Copy is ORIGINAL wording. Fields with status 'verify' or values starting with TODO must be confirmed with the business before any public use.",
+  "meta": {
+    "researchedOn": "2026-10-20",
+    "conceptDisclaimer": "Design concept, not the official website.",
+    "robots": "noindex,nofollow",
+    "timezone": "America/Chicago"
+  },
+  "business": {
+    "name": "Houston Roofing & Construction",
+    "shortName": "Houston Roofing",
+    "wordmark": "Houston Roofing",
+    "tagline": "We inspect. We show you. You decide.",
+    "legalName": "TODO: confirm legal entity name",
+    "founded": { "value": 2009, "status": "verify", "note": "Business site says 2009; Blue Book says 2008." },
+    "ownership": "Locally owned and operated, family-owned per business profiles",
+    "teamSize": { "value": "11-50", "status": "verify", "source": "LinkedIn company profile" },
+    "type": "RoofingContractor",
+    "serves": ["Residential", "Commercial", "Multi-family"],
+    "workModel": "In-house project managers; the business says it does not subcontract roof projects."
+  },
+  "contact": {
+    "address": { "street": "11330 West Rd", "city": "Houston", "state": "TX", "zip": "77065" },
+    "phone": "(832) 237-3737",
+    "phoneTel": "+18322373737",
+    "email": "contact@houstonroofingonline.com",
+    "bookingUrl": "/book",
+    "mapsLink": "https://maps.google.com/?q=11330+West+Rd,+Houston,+TX+77065"
+  },
+  "hours": {
+    "display": "Mon-Sun 7am-8pm",
+    "schema": [
+      { "days": ["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"], "opens": "07:00", "closes": "20:00" }
+    ],
+    "status": "verify"
+  },
+  "social": {
+    "facebook": "https://www.facebook.com/HoustonRC/",
+    "instagram": "https://www.instagram.com/houstonroofingandconstruction/",
+    "youtube": "https://www.youtube.com/channel/UCJNuWBlfl3octGxktiYmT8g/",
+    "googleBusiness": "https://g.page/HoustonRC",
+    "x": "https://x.com/roofinghouston",
+    "careers": "https://www.indeed.com/cmp/Houston-Roofing-and-Construction/jobs"
+  },
+  "credentials": [
+    {
+      "key": "bbb",
+      "label": "BBB A+ Rating",
+      "plainEnglish": "The Better Business Bureau grades businesses A+ to F based on complaint history, transparency and other factors. A+ is the top grade.",
+      "status": "verify",
+      "verifyAt": "BBB Accredited Business profile"
+    },
+    {
+      "key": "gaf-master-elite",
+      "label": "GAF Master Elite (President's Club level)",
+      "plainEnglish": "GAF is the largest shingle manufacturer in North America. Master Elite is its top contractor tier, and certified contractors can offer GAF's strongest manufacturer warranties. President's Club is described by the business as GAF's highest award.",
+      "status": "verify",
+      "notes": "Business blog says 8 straight years as of its post; do not hard-code the year count.",
+      "verifyAt": "GAF contractor locator (search by phone 832-237-3737)"
+    },
+    {
+      "key": "rcat",
+      "label": "RCAT Licensed",
+      "plainEnglish": "Texas has no state license for roofers. The Roofing Contractors Association of Texas runs a voluntary licensing program, which the business holds.",
+      "status": "verify",
+      "verifyAt": "RCAT licensed roofing contractor directory"
+    },
+    {
+      "key": "fortified",
+      "label": "FORTIFIED Roof",
+      "plainEnglish": "FORTIFIED is a construction standard from the Insurance Institute for Business & Home Safety (IBHS) for roofs built to resist severe wind.",
+      "status": "verify",
+      "notes": "FORTIFIED standard certified construction."
+    },
+    {
+      "key": "owens-corning",
+      "label": "Owens Corning Preferred installer",
+      "plainEnglish": "A contractor tier offered by Owens Corning for installers who meet its rigorous performance requirements.",
+      "status": "verify"
+    },
+    {
+      "key": "commercial-mfr",
+      "label": "Commercial manufacturer certifications (Carlisle, Duro-Last)",
+      "plainEnglish": "Manufacturer certifications that allow commercial roof systems to carry certified manufacturer warranties.",
+      "status": "verify"
+    }
+  ],
+  "trustStats": [
+    { "label": "Google rating", "value": "4.9 on Google", "subtext": "about 325 reviews", "status": "verify", "source": "Third-party directory snapshot; verify live Google profile.", "link": "https://g.page/HoustonRC" },
+    { "label": "Serving Houston since", "value": "2009", "subtext": "15+ years continuous local service", "status": "verify" },
+    { "label": "Commercial experience", "value": "20+ years", "subtext": "Leadership project oversight", "status": "verify", "source": "Business homepage" },
+    { "label": "Counties served", "value": "18", "subtext": "Greater Houston & Gulf Coast", "status": "verify", "source": "Blue Book profile" }
+  ],
+  "promo": {
+    "active": false,
+    "headline": "TODO: current offer",
+    "note": "Business site shows a promo banner that says it expires at month end. Do not publish a promo without confirmed dates."
+  },
+  "hero": {
+    "eyebrow": "Houston roofing, done honestly",
+    "headline": "A roof you can trust. A process you can see.",
+    "subhead": "Book a free inspection online, then follow every step of your project from your own dashboard.",
+    "primaryCta": { "label": "Book a free inspection", "href": "/book" },
+    "secondaryCta": { "label": "Call (832) 237-3737", "href": "tel:+18322373737" }
+  },
+  "process": [
+    { "step": 1, "title": "Inspect", "body": "We look at the whole roof system: shingles, flashing, vents, penetrations and the trouble spots in between." },
+    { "step": 2, "title": "Show", "body": "You see what we see. Photos and plain-language notes land in your dashboard." },
+    { "step": 3, "title": "Explain", "body": "Repair or replace, and what each choice means for cost, lifespan and insurance. No pressure." },
+    { "step": 4, "title": "Install", "body": "A project manager from our own team oversees the job from first nail to final cleanup." }
+  ],
+  "goodBetterBest": {
+    "intro": "Every project can include tiered options so you pick what fits your budget and how long you plan to own the property.",
+    "tiers": [
+      { "key": "good", "label": "Good", "title": "Dependable asphalt shingles", "body": "A cost-conscious system built for Houston heat and storms.", "bestFor": "Budget-focused projects or shorter ownership plans" },
+      { "key": "better", "label": "Better", "title": "Upgraded architectural system", "body": "Thicker, higher-performing shingles and a more complete component system.", "bestFor": "Most homeowners who want a balance of value and durability" },
+      { "key": "best", "label": "Best", "title": "Long-life metal roofing", "body": "Metal panels designed for longevity and strong heat reflection.", "bestFor": "Owners planning to stay long term" }
+    ],
+    "note": "TODO: confirm product lines, impact ratings and warranty names with the client before listing brands."
+  },
+  "warrantyExplainer": {
+    "title": "Warranties: read past the big number",
+    "points": [
+      "A manufacturer warranty covers materials. Workmanship coverage is separate and just as important.",
+      "Warranties only help if the roof is installed to spec and the warranty is registered correctly.",
+      "Choose coverage that matches how long you realistically expect to own the property.",
+      "Ask whether the warranty transfers to a future buyer."
+    ],
+    "status": "verify",
+    "note": "The business describes a premium manufacturer warranty (it names GAF Golden Pledge). Confirm exact warranty names, terms and years before publishing."
+  },
+  "serviceArea": {
+    "counties": ["Harris", "Montgomery", "Fort Bend", "Brazoria", "Galveston", "Waller", "Liberty", "Chambers", "Brazos", "Grimes", "Hardin", "Jefferson", "Matagorda", "Orange", "San Jacinto", "Walker", "Washington", "Wharton"],
+    "countiesSource": "Blue Book profile (18 counties)",
+    "citiesMentionedByBusiness": ["Houston", "Hunters Creek Village", "The Woodlands", "Spring", "Champions area", "Cypress"],
+    "citiesTodo": "TODO: ask client for the full city list for the 'Areas we serve' chips (Katy, Sugar Land, Pearland, Conroe, Humble, Tomball and others are likely but unverified)."
+  },
+  "nav": {
+    "primary": [
+      { "label": "Services", "href": "/services" },
+      { "label": "Why us", "href": "/why-us" },
+      { "label": "Reviews", "href": "/reviews" },
+      { "label": "Updates", "href": "/updates" },
+      { "label": "FAQ", "href": "/faq" },
+      { "label": "Contact", "href": "/contact" }
+    ],
+    "cta": { "label": "Book now", "href": "/book" },
+    "account": { "login": "/login", "dashboard": "/dashboard" }
+  },
+  "compliance": {
+    "insuranceDisclosure": "We are roofing contractors, not public insurance adjusters. We do not negotiate or settle claims on your behalf. You are responsible for your insurance deductible. Texas law prohibits contractors from waiving, rebating or absorbing a deductible.",
+    "contractNotice": "Contracts of $1,000 or more that involve an insurance settlement must include the statutory deductible notice (Tex. Bus. & Com. Code 27.02). TODO: have counsel supply the exact contract wording.",
+    "avoidPhrases": ["free roof (insurance)", "we will fight your adjuster", "we'll handle your claim for you", "we cover your deductible", "no out-of-pocket guaranteed"],
+    "sources": [
+      "https://www.tdi.texas.gov/Consumer/storms/roofing-and-insurance-know-the-law.html",
+      "https://www.tdi.texas.gov/column/get-your-insurance-claim-paid.html"
+    ],
+    "privacy": "Collect only what booking needs (name, phone, email, address, notes). Store contact consent with a timestamp. No SMS or email sending in v1.",
+    "legalReviewNeeded": ["Privacy Policy", "Terms of Service", "Warranty claims language", "Insurance page wording"]
+  },
+  "jsonld": {
+    "@context": "https://schema.org",
+    "@type": "RoofingContractor",
+    "name": "Houston Roofing & Construction",
+    "telephone": "+1-832-237-3737",
+    "address": { "@type": "PostalAddress", "streetAddress": "11330 West Rd", "addressLocality": "Houston", "addressRegion": "TX", "postalCode": "77065", "addressCountry": "US" },
+    "openingHoursSpecification": [
+      { "@type": "OpeningHoursSpecification", "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"], "opens": "07:00", "closes": "20:00" }
+    ],
+    "areaServed": ["Harris County, TX","Montgomery County, TX","Fort Bend County, TX","Brazoria County, TX","Galveston County, TX","Waller County, TX","Liberty County, TX","Chambers County, TX"],
+    "_todo": "Add aggregateRating ONLY after the rating is verified and not self-authored."
+  }
+}

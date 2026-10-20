@@ -1,0 +1,572 @@
+{
+  "_readme": "Sample reviews are placeholders written for the concept and MUST show a visible 'Sample' label. Replace with real, permissioned reviews later. Images are search directions for royalty-free photos (Unsplash/Pexels); record each credit in CREDITS.md. Never reuse the business's own photos.",
+  "sampleReviews": [
+    { "id": "s1", "sample": true, "name": "Sample customer", "area": "Cypress, TX", "rating": 5, "text": "Sample: The project manager walked the roof with me, showed me photos and explained my options without pressure.", "service": "Roof replacement" },
+    { "id": "s2", "sample": true, "name": "Sample customer", "area": "Spring, TX", "rating": 5, "text": "Sample: I expected to hear I needed a new roof. They recommended a repair and explained why.", "service": "Roof repair" },
+    { "id": "s3", "sample": true, "name": "Sample customer", "area": "The Woodlands, TX", "rating": 5, "text": "Sample: Clear updates at every step and a clean job site when they finished.", "service": "Roof replacement" },
+    { "id": "s4", "sample": true, "name": "Sample property manager", "area": "Houston, TX", "rating": 5, "text": "Sample: Phased schedule across our buildings and good communication with residents.", "service": "Multi-family roofing" },
+    { "id": "s5", "sample": true, "name": "Sample business owner", "area": "Houston, TX", "rating": 5, "text": "Sample: They worked around our operating hours and documented everything for our records.", "service": "Commercial roofing" },
+    { "id": "s6", "sample": true, "name": "Sample customer", "area": "Katy, TX", "rating": 5, "text": "Sample: Booking online and seeing my project status made the whole process feel simple.", "service": "Storm assessment" }
+  ],
+  "reviewSourceNote": "Real review text appears on Google, the business site and Blue Book (Blue Book shows one 2019 review from a Fort Bend ISD campus bid package). Do not copy those words. Link out instead, or ask the client for permission to quote.",
+  "images": [
+    { "key": "hero-home", "file": "hero-home.webp", "ratio": "16:9", "search": "aerial suburban neighborhood roofs sunset", "alt": "Aerial view of a neighborhood of shingle roofs at golden hour", "overlay": "gradient navy 55%" },
+    { "key": "asphalt-roof", "file": "asphalt-roof.webp", "ratio": "4:3", "search": "asphalt shingle roof installation close up", "alt": "Close-up of new asphalt shingles being installed" },
+    { "key": "metal-roof", "file": "metal-roof.webp", "ratio": "4:3", "search": "standing seam metal roof house", "alt": "Home with a standing seam metal roof" },
+    { "key": "storm-damage", "file": "storm-damage.webp", "ratio": "4:3", "search": "storm clouds over houses", "alt": "Dark storm clouds above residential rooftops" },
+    { "key": "inspection", "file": "inspection.webp", "ratio": "4:3", "search": "roof inspector on roof clipboard", "alt": "Inspector checking a roof with a clipboard" },
+    { "key": "siding", "file": "siding.webp", "ratio": "4:3", "search": "fiber cement siding house exterior", "alt": "House exterior with fiber cement siding" },
+    { "key": "commercial-roof", "file": "commercial-roof.webp", "ratio": "16:9", "search": "commercial flat roof TPO membrane", "alt": "Large commercial flat roof with a white membrane" },
+    { "key": "commercial-repair", "file": "commercial-repair.webp", "ratio": "4:3", "search": "flat roof seam repair worker", "alt": "Worker repairing a seam on a flat roof" },
+    { "key": "multifamily", "file": "multifamily.webp", "ratio": "16:9", "search": "apartment complex aerial roofs", "alt": "Aerial view of an apartment community" },
+    { "key": "family-home", "file": "family-home.webp", "ratio": "4:3", "search": "family in front of home suburban", "alt": "Family outside a suburban home" },
+    { "key": "crew", "file": "crew.webp", "ratio": "3:2", "search": "roofing crew working on roof", "alt": "Roofing crew working together on a roof" },
+    { "key": "cta-sky", "file": "cta-sky.webp", "ratio": "21:9", "search": "blue sky clouds sunny", "alt": "Bright blue sky with soft clouds" }
+  ],
+  "imageRules": ["AVIF and WebP with srcset", "Hero preloaded, others lazy", "Always set width and height", "Gradient overlay so text meets WCAG AA", "Record author and license in CREDITS.md"],
+  "blogTopics": [
+    { "slug": "after-a-hailstorm-checklist", "title": "After a hailstorm: a homeowner's checklist", "keyword": "hail damage roof Houston", "outline": ["Stay safe first", "Photograph and date everything", "Inspect gutters and soft metals", "Book a documented assessment", "How to talk to your insurer"] },
+    { "slug": "hurricane-season-roof-prep", "title": "Hurricane season roof prep in Houston", "keyword": "hurricane roof preparation Houston", "outline": ["Season runs June 1 to November 30", "Flashing, vents and edges", "Debris and drainage", "When to schedule an inspection"] },
+    { "slug": "repair-or-replace", "title": "Repair or replace? How to decide", "keyword": "repair or replace roof", "outline": ["Age", "Extent of damage", "Storm history", "Cost over time"] },
+    { "slug": "texas-roof-claims-explained", "title": "How roof insurance claims work in Texas", "keyword": "Texas roof insurance claim", "outline": ["You file the claim", "Deadlines per TDI", "Why contractors cannot act as adjusters", "Deductibles are your responsibility", "Get several bids"], "source": "https://www.tdi.texas.gov/Consumer/storms/roofing-and-insurance-know-the-law.html" },
+    { "slug": "asphalt-vs-metal-houston", "title": "Asphalt vs metal roofing in Houston heat", "keyword": "metal roof vs shingles Houston", "outline": ["Upfront cost vs lifespan", "Heat reflection", "Wind and hail", "Resale and ownership timeline"] },
+    { "slug": "read-a-roofing-estimate", "title": "How to read a roofing estimate", "keyword": "roofing estimate checklist", "outline": ["Scope and materials", "Tear-off and decking", "Ventilation and flashing", "Warranty terms", "Red flags"] },
+    { "slug": "texas-no-roofer-license", "title": "Texas has no roofing license. Here is how to vet a roofer", "keyword": "how to choose a roofer Texas", "outline": ["What RCAT licensing means", "Manufacturer certifications and how to verify", "Insurance and references", "Written contracts"] },
+    { "slug": "attic-ventilation-heat", "title": "Attic ventilation and Houston heat", "keyword": "attic ventilation roof", "outline": ["Why ventilation affects shingles", "Signs of trouble", "What an inspector checks"] },
+    { "slug": "commercial-flat-roof-maintenance", "title": "A maintenance calendar for commercial flat roofs", "keyword": "commercial roof maintenance schedule", "outline": ["Spring and fall checks", "After storms", "Drains and seams", "Documentation for warranties"] },
+    { "slug": "phased-multifamily-replacement", "title": "Phased roof replacement for apartment communities", "keyword": "multi-family roof replacement", "outline": ["Prioritizing buildings", "Resident communication", "Budgeting by phase"] }
+  ]
+}
+{
+  "_readme": "Original-wording FAQs. 'confirm' means the answer depends on business-specific facts to verify with the client. Insurance answers follow Texas Department of Insurance guidance (see SOURCES.md).",
+  "groups": [
+    {
+      "key": "getting-started",
+      "title": "Getting started",
+      "items": [
+        { "q": "How do I get a quote?", "a": "Book an inspection online. We look at the whole roof system, document what we find, then walk you through repair and replacement options.", "confirm": false },
+        { "q": "Is the inspection free?", "a": "The business advertises free inspections and estimates. Confirm any limits (area, type of property) before publishing.", "confirm": true },
+        { "q": "How does online booking work?", "a": "Choose a service, pick an open time, enter your details and confirm. Sign in with Google or your phone number so you can see your appointment and project progress any time.", "confirm": false },
+        { "q": "Can I reschedule or cancel?", "a": "Yes. You can change or cancel from your dashboard up to 24 hours before your appointment.", "confirm": false }
+      ]
+    },
+    {
+      "key": "timeline",
+      "title": "Process and timeline",
+      "items": [
+        { "q": "How long does a roof replacement take?", "a": "Most home replacements take one to two days on site, depending on roof size, complexity and weather. Larger or multi-building jobs are scheduled in phases.", "confirm": true },
+        { "q": "What happens before work starts?", "a": "We inspect, confirm scope and options, check permit and HOA requirements, order materials and schedule the install. Each step shows on your project timeline.", "confirm": false },
+        { "q": "How will I know what is happening?", "a": "Your dashboard shows the current stage, notes and photos from our team, and a history of every update.", "confirm": false }
+      ]
+    },
+    {
+      "key": "repair-vs-replace",
+      "title": "Repair or replace",
+      "items": [
+        { "q": "Do I need a full replacement?", "a": "Not always. Isolated damage can often be repaired. Widespread wear, storm damage or age may make replacement the better long-term choice. We show you both paths.", "confirm": false },
+        { "q": "Why do Houston roofs get replaced so often?", "a": "Heat, UV, humidity, wind and hail all age roofs here, and insurance requirements often influence timing as well. Age, storm history and current condition drive the decision.", "confirm": false },
+        { "q": "What does an inspection cover?", "a": "Shingles, flashing, ventilation, penetrations and common trouble spots, plus the attic where accessible. You get a clear list of what needs attention now versus later.", "confirm": false }
+      ]
+    },
+    {
+      "key": "insurance",
+      "title": "Storm damage and insurance",
+      "items": [
+        { "q": "Why is my insurer asking me to replace a roof that is not leaking?", "a": "Insurers can set requirements based on roof age or storm history. Read your notice carefully and ask your insurer or agent what applies to your policy.", "confirm": false },
+        { "q": "Do you handle my insurance claim?", "a": "No. In Texas a roofer cannot act as your public adjuster while also doing the work. We document the damage with photos and a written report that you can share with your insurer. You file and manage your own claim.", "confirm": false },
+        { "q": "Will you cover my deductible?", "a": "No. Texas law prohibits contractors from waiving, rebating or absorbing a deductible. You owe the deductible to the contractor.", "confirm": false },
+        { "q": "How long does my insurer have to respond?", "a": "Per Texas Department of Insurance guidance, an insurer has 15 business days to acknowledge a claim, and once it agrees to pay it has five business days to get payment started. Check the TDI page for current details.", "confirm": false, "source": "https://www.tdi.texas.gov/column/get-your-insurance-claim-paid.html" },
+        { "q": "Should I get more than one bid?", "a": "Yes. TDI recommends getting bids from several contractors when choosing who repairs your roof.", "confirm": false }
+      ]
+    },
+    {
+      "key": "warranty",
+      "title": "Materials and warranties",
+      "items": [
+        { "q": "Does a bigger warranty number mean a better roof?", "a": "Not by itself. Correct installation, proper warranty registration and coverage that fits how long you will own the property matter more than the headline number.", "confirm": false },
+        { "q": "What warranty will I get?", "a": "TODO: confirm exact manufacturer and workmanship warranty names, terms and years with the client.", "confirm": true },
+        { "q": "Do you push one brand?", "a": "The business says it is manufacturer-neutral and presents options across systems. Confirm which manufacturers it installs.", "confirm": true }
+      ]
+    },
+    {
+      "key": "credentials",
+      "title": "Trust and credentials",
+      "items": [
+        { "q": "Does Texas license roofers?", "a": "No. Texas does not require a state roofing license. RCAT offers a voluntary license, which the business states it holds.", "confirm": true },
+        { "q": "What is GAF Master Elite?", "a": "A top contractor tier from GAF, the largest U.S. shingle maker. Certified contractors can offer GAF's strongest manufacturer warranties. You can verify a contractor on GAF's website.", "confirm": true },
+        { "q": "Do you use subcontractors?", "a": "The business says its project managers are in-house employees and that it does not subcontract roof projects. Confirm before publishing.", "confirm": true }
+      ]
+    },
+    {
+      "key": "commercial",
+      "title": "Commercial and multi-family",
+      "items": [
+        { "q": "How do you work around tenants and operations?", "a": "We plan phased schedules, controlled access and clear communication with property managers.", "confirm": true },
+        { "q": "Where do we start for a commercial property?", "a": "With an inspection or walkthrough. It shows current condition and helps decide whether to replace now, repair, or plan for later.", "confirm": false }
+      ]
+    }
+  ]
+}
+{
+  "_readme": "One entry per service page or card. Copy is original. 'claimedByBusiness' items come from the business's public materials and need client confirmation. appointmentType maps to settings.json.",
+  "categories": [
+    { "key": "residential", "label": "Residential" },
+    { "key": "commercial", "label": "Commercial" },
+    { "key": "multifamily", "label": "Multi-family" },
+    { "key": "support", "label": "Support" }
+  ],
+  "services": [
+    {
+      "slug": "residential-asphalt-replacement",
+      "category": "residential",
+      "title": "Asphalt shingle roof replacement",
+      "summary": "A full tear-off and new shingle system for homes with aging, storm-worn or insurance-flagged roofs.",
+      "highlights": ["Full-system inspection first", "Tiered options (Good / Better / Best)", "In-house project manager on every job", "Photos and updates in your dashboard"],
+      "whatsIncluded": ["Roof and attic inspection", "Written scope and options", "Permit and HOA check", "Tear-off, deck check, underlayment, flashing, ventilation review", "Final walkthrough and cleanup"],
+      "typicalTimeline": { "install": "Most homes: 1-2 days", "status": "verify", "note": "Business FAQ says 1-2 days; an older blog post says 1-7 days. Confirm." },
+      "appointmentType": "free-inspection",
+      "imageKey": "asphalt-roof",
+      "meta": { "title": "Asphalt Roof Replacement in Houston", "description": "Asphalt shingle roof replacement for Houston homes with honest options and online project tracking." }
+    },
+    {
+      "slug": "residential-metal-replacement",
+      "category": "residential",
+      "title": "Metal roof replacement",
+      "summary": "Long-life metal roofing for owners who plan to stay and want strong heat reflection and storm resilience.",
+      "highlights": ["Built for Houston heat and wind", "Long lifespan", "Multiple profiles and colors (TODO: confirm panel types)"],
+      "whatsIncluded": ["Inspection and structure check", "Panel and trim options", "Detailed scope and schedule", "Installation and final inspection"],
+      "typicalTimeline": { "install": "TODO: confirm", "status": "verify" },
+      "appointmentType": "free-estimate",
+      "imageKey": "metal-roof",
+      "meta": { "title": "Metal Roof Replacement in Houston", "description": "Metal roofing for Houston homes: durable, heat-reflective and built for storm season." }
+    },
+    {
+      "slug": "roof-repair",
+      "category": "residential",
+      "title": "Roof repair, storm and hail",
+      "summary": "Leaks, missing shingles, flashing failures and storm or hail damage, with an honest answer on repair versus replacement.",
+      "highlights": ["Leak tracing to the real source", "Storm and hail documentation with photos", "Repair-first mindset when a repair is enough"],
+      "whatsIncluded": ["Inspection and photo report", "Repair scope with price", "Temporary protection when needed (TODO: confirm tarping offer)"],
+      "typicalTimeline": { "install": "Often 1 day for typical repairs; deeper damage can take several days", "status": "verify" },
+      "appointmentType": "storm-assessment",
+      "imageKey": "storm-damage",
+      "meta": { "title": "Roof Repair & Storm Damage in Houston", "description": "Fast, honest roof repair and hail or storm damage assessments in Houston." }
+    },
+    {
+      "slug": "roof-inspection-maintenance",
+      "category": "residential",
+      "title": "Roof inspection and maintenance",
+      "summary": "Catch small problems early. We check the full system and tell you what needs attention now versus later.",
+      "highlights": ["Free inspection offered by the business", "Photo-based findings", "Maintenance plans available for commercial properties (per business profile)"],
+      "whatsIncluded": ["Shingles, flashing, vents and penetrations", "Attic and ventilation check where accessible", "Prioritized findings list"],
+      "typicalTimeline": { "visit": "About 45-90 minutes for a typical home (industry norm, TODO confirm with client)", "status": "verify" },
+      "appointmentType": "free-inspection",
+      "imageKey": "inspection",
+      "meta": { "title": "Free Roof Inspection in Houston", "description": "Book a free roof inspection online and get a clear, photo-backed report." }
+    },
+    {
+      "slug": "siding",
+      "category": "residential",
+      "title": "Siding replacement",
+      "summary": "Durable fiber cement and wood siding, with vinyl also shown in the business gallery.",
+      "highlights": ["Assessment of damage and moisture", "Material comparison", "Coordinated with roofing when needed"],
+      "whatsIncluded": ["Inspection", "Material options", "Installation", "Final walkthrough"],
+      "typicalTimeline": { "install": "TODO: confirm", "status": "verify" },
+      "appointmentType": "free-estimate",
+      "imageKey": "siding",
+      "meta": { "title": "Siding Replacement in Houston", "description": "Fiber cement and wood siding replacement from a Houston roofing team." }
+    },
+    {
+      "slug": "commercial-roofing",
+      "category": "commercial",
+      "title": "Commercial roofing",
+      "summary": "Flat, low-slope and metal systems, coatings, repairs, replacements and new construction, planned around your operations.",
+      "highlights": ["Scheduling that respects business hours", "Systems: TPO, PVC, EPDM, modified bitumen (SBS/APP), BUR, metal and coatings (per business profile)", "Manufacturer-backed warranties (confirm)"],
+      "whatsIncluded": ["Roof survey and moisture check", "Repair vs replace analysis", "Phased scheduling", "Closeout documentation"],
+      "typicalTimeline": { "install": "Depends on size and system", "status": "verify" },
+      "appointmentType": "commercial-walkthrough",
+      "imageKey": "commercial-roof",
+      "meta": { "title": "Commercial Roofing in Houston", "description": "TPO, modified bitumen, metal and coating systems for Houston commercial properties." }
+    },
+    {
+      "slug": "commercial-repair-maintenance",
+      "category": "commercial",
+      "title": "Commercial repair and maintenance",
+      "summary": "Seam work, membrane patching, drainage fixes and recurring inspections that extend roof life and avoid emergency calls.",
+      "highlights": ["Small fixes before they become big ones", "Recurring inspection plans (TODO: confirm program)"],
+      "whatsIncluded": ["Condition report", "Repair scope", "Maintenance schedule"],
+      "typicalTimeline": { "install": "TODO: confirm", "status": "verify" },
+      "appointmentType": "commercial-walkthrough",
+      "imageKey": "commercial-repair",
+      "meta": { "title": "Commercial Roof Repair & Maintenance in Houston", "description": "Low-slope roof repair and maintenance programs for Houston businesses." }
+    },
+    {
+      "slug": "multi-family-roofing",
+      "category": "multifamily",
+      "title": "Multi-family roofing",
+      "summary": "Apartments, townhomes and multi-building communities with phased replacements and resident-aware scheduling.",
+      "highlights": ["Phased plans by building", "Clear communication with property managers", "Warranty coverage across units (confirm)"],
+      "whatsIncluded": ["Property-wide evaluation", "Priority ranking by building", "Phased schedule", "Resident notices (TODO: confirm process)"],
+      "typicalTimeline": { "install": "Days for small properties; several weeks for large phased projects", "status": "verify" },
+      "appointmentType": "commercial-walkthrough",
+      "imageKey": "multifamily",
+      "meta": { "title": "Multi-Family Roofing in Houston", "description": "Phased roof replacement and maintenance for apartments and townhome communities." }
+    },
+    {
+      "slug": "insurance-claim-guidance",
+      "category": "support",
+      "title": "Storm damage and insurance claim guidance",
+      "summary": "We document roof damage with photos and a written report you can share with your insurer. You file and manage your claim.",
+      "highlights": ["Photo-backed damage report", "Plain-English explanation of next steps", "Clear separation between contractor and insurer roles"],
+      "whatsIncluded": ["Damage inspection and report", "Repair or replacement estimate", "Timeline of what to expect"],
+      "mustShow": "compliance.insuranceDisclosure in site.json on this page and in the footer of the page",
+      "typicalTimeline": { "status": "n/a" },
+      "appointmentType": "storm-assessment",
+      "imageKey": "storm-damage",
+      "meta": { "title": "Storm Damage & Insurance Claim Guidance in Houston", "description": "Photo-documented roof damage reports and clear guidance on Texas insurance claims." },
+      "warning": "Do not say or imply that the contractor negotiates claims, acts as adjuster, or covers deductibles. See TDI guidance in SOURCES.md."
+    },
+    {
+      "slug": "financing",
+      "category": "support",
+      "title": "Roof financing",
+      "summary": "Spread the cost of a roof so your savings stay available for emergencies.",
+      "highlights": ["Financing offered by the business", "Terms TODO"],
+      "whatsIncluded": ["TODO: lender/partner name", "TODO: terms, APR range, minimums"],
+      "appointmentType": "free-estimate",
+      "imageKey": "family-home",
+      "meta": { "title": "Roof Financing in Houston", "description": "Explore financing options for your roof replacement or repair." },
+      "warning": "Do not publish rates or 'no payment' promises without the client's written terms."
+    }
+  ]
+}
+{
+  "_readme": "Seed data for Firestore settings/* and announcements. Durations and hours are configurable defaults for the concept, not claims by the business.",
+  "booking": {
+    "timezone": "America/Chicago",
+    "slotIntervalMinutes": 30,
+    "minLeadHours": 12,
+    "maxDaysAhead": 60,
+    "cancelOrRescheduleCutoffHours": 24,
+    "maxActiveAppointmentsPerUser": 3,
+    "weeklyHours": {
+      "mon": [["08:00", "18:00"]],
+      "tue": [["08:00", "18:00"]],
+      "wed": [["08:00", "18:00"]],
+      "thu": [["08:00", "18:00"]],
+      "fri": [["08:00", "18:00"]],
+      "sat": [["08:00", "16:00"]],
+      "sun": [["10:00", "16:00"]]
+    },
+    "blackoutDates": [
+      { "date": "2026-11-26", "reason": "Thanksgiving" },
+      { "date": "2026-12-25", "reason": "Christmas Day" },
+      { "date": "2027-01-01", "reason": "New Year's Day" }
+    ],
+    "appointmentTypes": [
+      { "key": "free-inspection", "label": "Free roof inspection", "durationMinutes": 60, "bufferMinutes": 30, "capacityPerSlot": 2, "autoConfirm": true, "audience": "residential", "description": "A full roof-system inspection with photos and a plain-language summary." },
+      { "key": "free-estimate", "label": "Free estimate", "durationMinutes": 60, "bufferMinutes": 30, "capacityPerSlot": 2, "autoConfirm": true, "audience": "residential", "description": "Review options and pricing for replacement, siding or metal." },
+      { "key": "storm-assessment", "label": "Storm or hail damage assessment", "durationMinutes": 90, "bufferMinutes": 30, "capacityPerSlot": 2, "autoConfirm": true, "audience": "residential", "description": "Photo-documented damage report you can share with your insurer." },
+      { "key": "repair-visit", "label": "Repair visit", "durationMinutes": 60, "bufferMinutes": 30, "capacityPerSlot": 1, "autoConfirm": false, "audience": "residential", "description": "Targeted visit for a leak or specific repair issue." },
+      { "key": "commercial-walkthrough", "label": "Commercial or multi-family walkthrough", "durationMinutes": 90, "bufferMinutes": 30, "capacityPerSlot": 1, "autoConfirm": false, "audience": "commercial", "description": "On-site survey for a business or multi-building property." },
+      { "key": "phone-consult", "label": "Phone consultation", "durationMinutes": 20, "bufferMinutes": 10, "capacityPerSlot": 3, "autoConfirm": true, "audience": "all", "description": "A quick call to talk through your situation." }
+    ],
+    "requiredFields": ["name", "phone", "email", "address.street", "address.zip", "propertyType", "serviceType"],
+    "optionalFields": ["notes", "howDidYouHear"],
+    "howDidYouHearOptions": ["Google search", "Google Ad", "Facebook", "Instagram", "Referral", "Radio", "TV", "Direct mail", "Other"],
+    "propertyTypes": ["Single-family home", "Townhome", "Commercial building", "Multi-family community", "Other"],
+    "consentText": { "version": "v1", "text": "I agree that Houston Roofing & Construction may contact me about this appointment." }
+  },
+  "stages": [
+    { "key": "request-received", "label": "Request received", "customerText": "We have your request and will confirm your appointment.", "icon": "inbox" },
+    { "key": "inspection-scheduled", "label": "Inspection scheduled", "customerText": "Your inspection is on the calendar.", "icon": "calendar" },
+    { "key": "inspection-complete", "label": "Inspection complete", "customerText": "We have inspected your roof. Photos and notes are on the way.", "icon": "search" },
+    { "key": "estimate-delivered", "label": "Estimate delivered", "customerText": "Your options and pricing are ready to review.", "icon": "file" },
+    { "key": "agreement-signed", "label": "Agreement signed", "customerText": "Thanks. We are preparing your project.", "icon": "check" },
+    { "key": "materials-permits", "label": "Permits and materials", "customerText": "We are handling permits and ordering materials.", "icon": "truck" },
+    { "key": "install-scheduled", "label": "Install scheduled", "customerText": "Your installation dates are set.", "icon": "calendar-check" },
+    { "key": "in-progress", "label": "Work in progress", "customerText": "Our crew is on site.", "icon": "hammer" },
+    { "key": "final-inspection", "label": "Final inspection", "customerText": "We are doing a final quality check and cleanup.", "icon": "clipboard" },
+    { "key": "warranty-registered", "label": "Warranty registered", "customerText": "Your warranty paperwork is submitted.", "icon": "shield" },
+    { "key": "complete", "label": "Complete", "customerText": "All done. We would love your feedback.", "icon": "star" }
+  ],
+  "announcementTemplates": [
+    { "key": "storm-watch", "severity": "storm", "title": "Storm watch: priority inspections open", "body": "Severe weather is in the forecast. Book a storm damage assessment and we will prioritize open slots as conditions allow." },
+    { "key": "post-storm", "severity": "storm", "title": "After the storm: schedule your assessment", "body": "If you saw hail, wind damage or leaks, book an assessment. Take photos and note the date of the storm." },
+    { "key": "rain-delay", "severity": "schedule", "title": "Weather delays possible this week", "body": "Rain may shift install dates. Your dashboard will show updates if your schedule changes." },
+    { "key": "holiday-hours", "severity": "info", "title": "Holiday scheduling", "body": "Online booking is closed on the dates shown. You can still book any open day." },
+    { "key": "promo", "severity": "promo", "title": "TODO: confirmed offer", "body": "Publish only with confirmed terms and real start and end dates." },
+    { "key": "hurricane-season", "severity": "info", "title": "Hurricane season prep", "body": "The Atlantic hurricane season runs June 1 to November 30. A pre-season inspection can catch loose flashing, lifted shingles and clogged drainage." }
+  ],
+  "notificationTemplates": {
+    "bookingConfirmed": "Your {{type}} is confirmed for {{date}} at {{time}}.",
+    "bookingChanged": "Your appointment was moved to {{date}} at {{time}}.",
+    "bookingCancelled": "Your appointment on {{date}} was cancelled.",
+    "stageAdvanced": "Project update: {{stage}}. {{note}}",
+    "newNotice": "New notice: {{title}}",
+    "reviewInvite": "Your project is complete. Tell us how we did."
+  },
+  "roles": { "customer": "default", "staff": "manage bookings and projects", "admin": "everything plus settings and users" },
+  "formDefaults": {
+    "adminKpis": ["Bookings this week", "Appointment to project conversion", "Average days per stage", "Open storm assessments"]
+  }
+}
+{
+  "_readme": "Concept-site content for Houston Roofing & Construction. Facts come from public sources (see SOURCES.md). Copy is ORIGINAL wording. Fields with status 'verify' or values starting with TODO must be confirmed with the business before any public use.",
+  "meta": {
+    "researchedOn": "2026-10-20",
+    "conceptDisclaimer": "Design concept, not the official website.",
+    "robots": "noindex,nofollow",
+    "timezone": "America/Chicago"
+  },
+  "business": {
+    "name": "Houston Roofing & Construction",
+    "shortName": "Houston Roofing",
+    "wordmark": "Houston Roofing",
+    "tagline": "We inspect. We show you. You decide.",
+    "legalName": "TODO: confirm legal entity name",
+    "founded": { "value": 2009, "status": "verify", "note": "Business site says 2009; Blue Book says 2008." },
+    "ownership": "Locally owned and operated, family-owned per business profiles",
+    "teamSize": { "value": "11-50", "status": "verify", "source": "LinkedIn company profile" },
+    "type": "RoofingContractor",
+    "serves": ["Residential", "Commercial", "Multi-family"],
+    "workModel": "In-house project managers; the business says it does not subcontract roof projects."
+  },
+  "contact": {
+    "address": { "street": "11330 West Rd", "city": "Houston", "state": "TX", "zip": "77065" },
+    "phone": "(832) 237-3737",
+    "phoneTel": "+18322373737",
+    "email": "TODO: copy from client (site hides it behind Cloudflare protection)",
+    "bookingUrl": "/book",
+    "mapsLink": "TODO: Google Maps share link"
+  },
+  "hours": {
+    "display": "Mon-Sun 7am-8pm",
+    "schema": [
+      { "days": ["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"], "opens": "07:00", "closes": "20:00" }
+    ],
+    "status": "verify"
+  },
+  "social": {
+    "facebook": "https://www.facebook.com/HoustonRC/",
+    "instagram": "https://www.instagram.com/houstonroofingandconstruction/",
+    "youtube": "https://www.youtube.com/channel/UCJNuWBlfl3octGxktiYmT8g/",
+    "googleBusiness": "https://g.page/HoustonRC",
+    "x": "https://x.com/roofinghouston",
+    "careers": "https://www.indeed.com/cmp/Houston-Roofing-and-Construction/jobs"
+  },
+  "credentials": [
+    {
+      "key": "bbb",
+      "label": "BBB A+ Rating",
+      "plainEnglish": "The Better Business Bureau grades businesses A+ to F based on complaint history, transparency and other factors. A+ is the top grade.",
+      "status": "verify",
+      "verifyAt": "TODO: BBB profile URL"
+    },
+    {
+      "key": "gaf-master-elite",
+      "label": "GAF Master Elite (President's Club level)",
+      "plainEnglish": "GAF is the largest shingle manufacturer in North America. Master Elite is its top contractor tier, and certified contractors can offer GAF's strongest manufacturer warranties. President's Club is described by the business as GAF's highest award.",
+      "status": "verify",
+      "notes": "Business blog says 8 straight years as of its post; do not hard-code the year count. Business pages quote both 2% and 3% of contractors; confirm the figure on GAF's contractor locator before using any percentage.",
+      "verifyAt": "GAF contractor locator (search by phone 832-237-3737)"
+    },
+    {
+      "key": "rcat",
+      "label": "RCAT Licensed",
+      "plainEnglish": "Texas has no state license for roofers. The Roofing Contractors Association of Texas runs a voluntary licensing program, which the business holds.",
+      "status": "verify",
+      "verifyAt": "TODO: RCAT license number or lookup link"
+    },
+    {
+      "key": "fortified",
+      "label": "FORTIFIED Roof",
+      "plainEnglish": "FORTIFIED is a construction standard from the Insurance Institute for Business & Home Safety (IBHS) for roofs built to resist severe wind.",
+      "status": "verify",
+      "notes": "FORTIFIED logo appears on the business site; confirm whether they are an evaluator or install to the standard."
+    },
+    {
+      "key": "owens-corning",
+      "label": "Owens Corning Preferred installer",
+      "plainEnglish": "A contractor tier offered by Owens Corning for installers who meet its requirements.",
+      "status": "verify"
+    },
+    {
+      "key": "commercial-mfr",
+      "label": "Commercial manufacturer certifications (Carlisle, Duro-Last)",
+      "plainEnglish": "Manufacturer certifications that allow commercial roof systems to carry manufacturer warranties.",
+      "status": "verify",
+      "notes": "Mentioned on a service-area page of the business site; confirm current status. IKO logo also shown."
+    }
+  ],
+  "trustStats": [
+    { "label": "Google rating", "value": "4.9 stars (about 325 reviews)", "status": "verify", "source": "Third-party directory snapshot; check live Google profile. Other directories show 4.8 with 80+ reviews, so numbers vary by source.", "link": "https://g.page/HoustonRC" },
+    { "label": "Serving since", "value": "2009", "status": "verify" },
+    { "label": "Leadership commercial experience", "value": "20+ years", "status": "verify", "source": "Business homepage" },
+    { "label": "Counties served", "value": "18", "status": "verify", "source": "Blue Book profile" }
+  ],
+  "promo": {
+    "active": false,
+    "headline": "TODO: current offer",
+    "note": "Business site shows a $500 off roof replacement banner that says it expires at month end. Do not publish a promo without confirmed dates (use the announcements system with startAt/endAt)."
+  },
+  "hero": {
+    "eyebrow": "Houston roofing, done honestly",
+    "headline": "A roof you can trust. A process you can see.",
+    "subhead": "Book a free inspection online, then follow every step of your project from your own dashboard.",
+    "primaryCta": { "label": "Book a free inspection", "href": "/book" },
+    "secondaryCta": { "label": "Call (832) 237-3737", "href": "tel:+18322373737" }
+  },
+  "process": [
+    { "step": 1, "title": "Inspect", "body": "We look at the whole roof system: shingles, flashing, vents, penetrations and the trouble spots in between." },
+    { "step": 2, "title": "Show", "body": "You see what we see. Photos and plain-language notes land in your dashboard." },
+    { "step": 3, "title": "Explain", "body": "Repair or replace, and what each choice means for cost, lifespan and insurance. No pressure." },
+    { "step": 4, "title": "Install", "body": "A project manager from our own team oversees the job from first nail to final cleanup." }
+  ],
+  "goodBetterBest": {
+    "intro": "Every project can include tiered options so you pick what fits your budget and how long you plan to own the property.",
+    "tiers": [
+      { "key": "good", "label": "Good", "title": "Dependable asphalt shingles", "body": "A cost-conscious system built for Houston heat and storms.", "bestFor": "Budget-focused projects or shorter ownership plans" },
+      { "key": "better", "label": "Better", "title": "Upgraded architectural system", "body": "Thicker, higher-performing shingles and a more complete component system.", "bestFor": "Most homeowners who want a balance of value and durability" },
+      { "key": "best", "label": "Best", "title": "Long-life metal roofing", "body": "Metal panels designed for longevity and strong heat reflection.", "bestFor": "Owners planning to stay long term" }
+    ],
+    "note": "TODO: confirm product lines, impact ratings and warranty names with the client before listing brands."
+  },
+  "warrantyExplainer": {
+    "title": "Warranties: read past the big number",
+    "points": [
+      "A manufacturer warranty covers materials. Workmanship coverage is separate and just as important.",
+      "Warranties only help if the roof is installed to spec and the warranty is registered correctly.",
+      "Choose coverage that matches how long you realistically expect to own the property.",
+      "Ask whether the warranty transfers to a future buyer."
+    ],
+    "status": "verify",
+    "note": "The business describes a premium manufacturer warranty (it names GAF Golden Pledge). Confirm exact warranty names, terms and years before publishing."
+  },
+  "serviceArea": {
+    "counties": ["Brazoria","Brazos","Chambers","Fort Bend","Galveston","Grimes","Hardin","Harris","Jefferson","Liberty","Matagorda","Montgomery","Orange","San Jacinto","Walker","Waller","Washington","Wharton"],
+    "countiesSource": "Blue Book profile (18 counties)",
+    "citiesMentionedByBusiness": ["Houston","Hunters Creek Village","The Woodlands","Spring","Champions area","Cypress"],
+    "citiesTodo": "TODO: ask client for the full city list for the 'Areas we serve' chips (Katy, Sugar Land, Pearland, Conroe, Humble, Tomball and others are likely but unverified)."
+  },
+  "nav": {
+    "primary": [
+      { "label": "Services", "href": "/services" },
+      { "label": "Why us", "href": "/why-us" },
+      { "label": "Reviews", "href": "/reviews" },
+      { "label": "Updates", "href": "/updates" },
+      { "label": "Contact", "href": "/contact" }
+    ],
+    "cta": { "label": "Book now", "href": "/book" },
+    "account": { "login": "/login", "dashboard": "/dashboard" }
+  },
+  "pages": {
+    "home": { "title": "Houston Roofing & Construction | Roof Replacement, Repair & Inspections", "description": "Residential, commercial and multi-family roofing in Houston. Book a free inspection online and track your project from your dashboard." },
+    "services": { "title": "Roofing & Siding Services in Houston | Houston Roofing & Construction", "description": "Roof replacement, repair, inspections, siding, commercial and multi-family roofing across the Houston area." },
+    "residential": { "title": "Residential Roofing in Houston | Replacement & Repair", "description": "Asphalt and metal roof replacement, storm and hail repair, and honest repair-vs-replace advice for Houston homes." },
+    "commercial": { "title": "Commercial & Multi-Family Roofing in Houston", "description": "Flat, low-slope and metal roofing, coatings, maintenance and phased multi-family replacements in Houston." },
+    "whyUs": { "title": "Why Choose Us | Credentials & Honest Assessments", "description": "BBB A+, GAF Master Elite and RCAT licensed. See what each credential means and how we work." },
+    "reviews": { "title": "Customer Reviews | Houston Roofing & Construction", "description": "See what Houston customers say about our roofing work." },
+    "updates": { "title": "Storm Alerts & Updates | Houston Roofing & Construction", "description": "Live notices on storm response, scheduling changes and offers." },
+    "faq": { "title": "Roofing FAQ for Houston Property Owners", "description": "Straight answers on timelines, insurance, warranties and repair vs replacement." },
+    "contact": { "title": "Contact & Book | Houston Roofing & Construction", "description": "Call (832) 237-3737 or book a free inspection online." },
+    "book": { "title": "Book a Free Roof Inspection Online", "description": "Pick a time that works, confirm instantly, and follow your project online." }
+  },
+  "compliance": {
+    "insuranceDisclosure": "We are roofing contractors, not public insurance adjusters. We do not negotiate or settle claims on your behalf. You are responsible for your insurance deductible. Texas law prohibits contractors from waiving, rebating or absorbing a deductible.",
+    "contractNotice": "Contracts of $1,000 or more that involve an insurance settlement must include the statutory deductible notice (Tex. Bus. & Com. Code 27.02). TODO: have counsel supply the exact contract wording.",
+    "avoidPhrases": ["free roof (insurance)", "we will fight your adjuster", "we'll handle your claim for you", "we cover your deductible", "no out-of-pocket guaranteed"],
+    "sources": [
+      "https://www.tdi.texas.gov/Consumer/storms/roofing-and-insurance-know-the-law.html",
+      "https://www.tdi.texas.gov/column/get-your-insurance-claim-paid.html"
+    ],
+    "privacy": "Collect only what booking needs (name, phone, email, address, notes). Store contact consent with a timestamp. No SMS or email sending in v1.",
+    "legalReviewNeeded": ["Privacy Policy", "Terms of Service", "Warranty claims language", "Insurance page wording"]
+  },
+  "jsonld": {
+    "@context": "https://schema.org",
+    "@type": "RoofingContractor",
+    "name": "Houston Roofing & Construction",
+    "telephone": "+1-832-237-3737",
+    "address": { "@type": "PostalAddress", "streetAddress": "11330 West Rd", "addressLocality": "Houston", "addressRegion": "TX", "postalCode": "77065", "addressCountry": "US" },
+    "openingHoursSpecification": [
+      { "@type": "OpeningHoursSpecification", "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"], "opens": "07:00", "closes": "20:00" }
+    ],
+    "areaServed": ["Harris County, TX","Montgomery County, TX","Fort Bend County, TX","Brazoria County, TX","Galveston County, TX","Waller County, TX","Liberty County, TX","Chambers County, TX"],
+    "_todo": "Add aggregateRating ONLY after the rating is verified and not self-authored."
+  }
+}
+# Houston Roofing & Construction: Sources, Gaps and To-Do
+
+Researched 20 Oct 2026 from public pages only. No security scanning or probing was done on their site.
+
+## 1. Fact sources
+
+| Fact | Source | Status |
+|---|---|---|
+| Name, address (11330 West Rd, Houston TX 77065), phone (832) 237-3737, hours Mon-Sun 7am-8pm | houstonroofingonline.com homepage | Verified on their site |
+| Founded 2009 | Their homepage | Conflicts with Blue Book (2008) |
+| Services: residential asphalt and metal, repair, storm and hail, inspections, siding, commercial, multi-family, insurance claim help, financing | Their homepage and nav | Verified on their site |
+| BBB A+, GAF Master Elite (President's Club), RCAT licensed, FORTIFIED, Owens Corning Preferred | Their site and blog posts | Business claims; verify with BBB, GAF locator, RCAT |
+| Carlisle and Duro-Last certifications | Their Hunters Creek Village service page | Business claim; verify |
+| 18 counties served | thebluebook.com/iProView/806863 | Third party; verify |
+| Rating about 4.9 from 325 Google reviews | serviceagent.ai directory | Third party snapshot; other directories show 4.8 with 80+ reviews. Check live Google profile |
+| 11-50 employees | LinkedIn data via contactout.io | Rough |
+| Annual volume $6-10M | Blue Book | Rough, do not publish. Datanyze says $2.1M, so sources conflict |
+| Roof types handled (tile, metal, standing seam, asphalt, TPO, PVC, EPDM, SBS, APP, BUR, coatings) | Blue Book and LinkedIn descriptions | Business profile text |
+| Typical replacement 1-2 days | Their FAQ and roof replacement page | Older blog says 1-7 days; confirm |
+| Texas contractor rules on adjusters and deductibles | https://www.tdi.texas.gov/Consumer/storms/roofing-and-insurance-know-the-law.html | Official (TDI) |
+| Claim timing (15 business days to acknowledge, 5 business days to start payment after approval) | https://www.tdi.texas.gov/column/get-your-insurance-claim-paid.html | Official (TDI), March 2024 page |
+
+Not readable: Instagram profile and Linktree (login wall, URL length). Open manually for brand colors, project photos and link-in-bio offers.
+
+## 2. Gaps found on their current site (for your pitch)
+
+Based on page text, not rendered speed or visuals. Run PageSpeed Insights on mobile for real numbers.
+
+1. Several competing booking paths: Instant Quote popup, Schedule Appointment, Book A Quote, Contact Us, Free Consultation.
+2. Booking is a lead form. No account, no live availability, no status or history after submit.
+3. No customer portal or project progress view.
+4. About 8 menus and 50+ links in the navigation.
+5. Strongest proof (rating and review count) is not visible in the homepage text; only 3 testimonials.
+6. Copy slips: "recieve" in the promo bar, "Hoston" in an image alt, Multi-Family blurb repeats the Commercial blurb word for word.
+7. Inconsistent claims inside their own pages: GAF Master Elite quoted as top 2% in some posts and 3% in another; replacement time 1-2 days vs 1-7 days; founded 2008 vs 2009; "250+" reviews vs 325.
+8. Promo banner "expires at end of month" while the page's last-updated stamp is June 2026.
+9. Insurance wording worth a legal review (see section 3).
+10. No notices system: no storm alerts, schedule changes or dated offers.
+
+Tone for outreach: share privately and kindly, lead with what you built, keep the list short.
+
+## 3. Compliance notes (not legal advice)
+
+- TDI says Texas does not allow a roofer to act as a public adjuster on a claim they are also repairing, and that websites and ads must not say or imply it. It also says offering to negotiate settlements or file a claim for the policyholder, or to waive, rebate or absorb a deductible, is illegal.
+- Their site has a "Free Roofs" insurance page and says a homeowner should have "an expert advocate" when meeting an adjuster. Suggest they have counsel review the wording.
+- Contracts of $1,000 or more involving an insurance settlement must carry a deductible notice (Tex. Bus. & Com. Code 27.02).
+- Our concept pages use the compliant wording in site.json under `compliance`.
+- Marketing text messages need consent. v1 sends no SMS or email, so the booking form only stores contact consent with a timestamp.
+- Do not copy their logo, photos or review text. Sample reviews are labelled "Sample".
+
+## 4. Data NOT to use
+
+- Revenue estimates (conflicting, unverified).
+- Cost per square ranges for Houston (low-quality sources). Only use pricing the client supplies.
+- Third-party "best of" rankings.
+
+## 5. Ask the client for (all marked TODO in the JSON)
+
+1. Legal entity name, public email, Google Maps link.
+2. BBB profile link, RCAT license number or lookup, GAF locator link, and current Master Elite year count.
+3. Current promo with real start and end dates.
+4. Exact warranty names, terms and years (manufacturer and workmanship).
+5. Financing partner, terms and minimums.
+6. Full city list for the service-area section.
+7. Panel and shingle product lines they install, and whether FORTIFIED means evaluator or installer.
+8. Real photos, real reviews (with permission), team bios.
+9. Typical timelines per service and whether tarping is offered.
+10. Privacy Policy and Terms reviewed by counsel.
+
+## 6. How the agent should use these files
+
+- `site.json` becomes `content/site.json`. `services.json`, `faqs.json` and `settings.json` map to the files named in the build prompt. `assets-and-blog.json` feeds images, sample reviews and blog seeds.
+- `settings.json` seeds Firestore `settings/booking`, `settings/stages` and starter `announcements`.
+- Any field with status "verify" or a value beginning "TODO" must render as a visible placeholder in the admin UI so nothing unverified ships as fact.

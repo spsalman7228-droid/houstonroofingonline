@@ -1,0 +1,93 @@
+/**
+ * public/css/tokens.css
+ * Core design tokens: High-contrast slate gray, crisp white, safety amber, and teal accents.
+ * Implements strict typography scales and the 80 / 15 / 5 surface disciplines.
+ */
+
+:root {
+  /* Typography */
+  --font-sans: 'Plus Jakarta Sans', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --font-serif: 'Fraunces', Georgia, Cambria, 'Times New Roman', serif;
+
+  /* Color Palette: High Contrast Slate & Safety Amber */
+  --color-canvas: #f8fafc;
+  --color-surface: #ffffff;
+  --color-surface-muted: #f1f5f9;
+  --color-surface-dark: #0f172a;
+  --color-surface-dark-card: #1e293b;
+
+  --color-border: #e2e8f0;
+  --color-border-dark: #334155;
+  --color-border-subtle: #cbd5e1;
+
+  --color-text-main: #0f172a;
+  --color-text-muted: #64748b;
+  --color-text-inverse: #f8fafc;
+  --color-text-inverse-muted: #94a3b8;
+
+  /* Primary Accent: Safety Amber */
+  --color-amber-50: #fffbeb;
+  --color-amber-100: #fef3c7;
+  --color-amber-500: #f59e0b;
+  --color-amber-600: #d97706;
+  --color-amber-700: #b45309;
+
+  /* Secondary Accent: Slate Navy */
+  --color-slate-800: #1e293b;
+  --color-slate-900: #0f172a;
+
+  /* Status & Milestones: Spruce Teal */
+  --color-teal-500: #14b8a6;
+  --color-teal-600: #0d9488;
+  --color-teal-50: #f0fdfa;
+
+  /* Notice Severities */
+  --color-severity-storm: #6366f1;
+  --color-severity-storm-bg: #eef2ff;
+  --color-severity-schedule: #f59e0b;
+  --color-severity-schedule-bg: #fffbeb;
+  --color-severity-info: #0284c7;
+  --color-severity-info-bg: #f0f9ff;
+  --color-severity-promo: #10b981;
+  --color-severity-promo-bg: #ecfdf5;
+
+  /* Spacing & Container Math */
+  --container-max: 1240px;
+  --header-height: 72px;
+  --mobile-bar-height: 64px;
+
+  /* 80% Minimal Flat Tokens */
+  --shadow-flat-subtle: 0 1px 3px 0 rgba(15, 23, 42, 0.05), 0 1px 2px -1px rgba(15, 23, 42, 0.05);
+  --shadow-flat-card: 0 4px 6px -1px rgba(15, 23, 42, 0.07), 0 2px 4px -2px rgba(15, 23, 42, 0.05);
+
+  /* 15% Glassmorphism Tokens (Over background images/modals only) */
+  --glass-bg: rgba(255, 255, 255, 0.72);
+  --glass-bg-dark: rgba(15, 23, 42, 0.75);
+  --glass-border: 1px solid rgba(255, 255, 255, 0.4);
+  --glass-border-dark: 1px solid rgba(255, 255, 255, 0.12);
+  --glass-backdrop: blur(14px) saturate(140%);
+  --glass-shadow: 0 8px 32px 0 rgba(15, 23, 42, 0.12);
+
+  /* 5% Claymorphism Tokens (Hero CTA & active milestones only) */
+  --clay-radius: 28px;
+  --clay-amber-bg: linear-gradient(135deg, #fbbf24 0%, #f59e0b 50%, #d97706 100%);
+  --clay-amber-shadow:
+    inset 2px 2px 4px rgba(255, 255, 255, 0.6),
+    inset -2px -2px 5px rgba(180, 83, 9, 0.4),
+    0 10px 20px -5px rgba(245, 158, 11, 0.4);
+  --clay-amber-pressed:
+    inset 3px 3px 6px rgba(180, 83, 9, 0.5),
+    inset -1px -1px 3px rgba(255, 255, 255, 0.4),
+    0 4px 8px -2px rgba(245, 158, 11, 0.3);
+
+  --clay-teal-bg: linear-gradient(135deg, #2dd4bf 0%, #14b8a6 50%, #0d9488 100%);
+  --clay-teal-shadow:
+    inset 2px 2px 4px rgba(255, 255, 255, 0.6),
+    inset -2px -2px 5px rgba(13, 148, 136, 0.4),
+    0 8px 16px -4px rgba(20, 184, 166, 0.35);
+
+  --radius-sm: 6px;
+  --radius-md: 10px;
+  --radius-lg: 16px;
+  --radius-xl: 24px;
+}

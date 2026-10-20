@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noindex,nofollow">
+  <title>Customer Portal &amp; Progress Tracker | Houston Roofing &amp; Construction</title>
+  <meta name="description" content="View your scheduled appointments, active project milestones, inspector notes, and photos.">
+  <link rel="stylesheet" href="/css/tokens.css">
+  <link rel="stylesheet" href="/css/base.css">
+  <link rel="stylesheet" href="/css/components.css">
+  <link rel="stylesheet" href="/css/animations.css">
+  <style>
+    .dash-tabs-nav {
+      display: flex;
+      gap: 0.5rem;
+      border-bottom: 1px solid var(--color-border);
+      margin-bottom: 2rem;
+      overflow-x: auto;
+    }
+    .dash-tab-btn {
+      padding: 0.75rem 1.25rem;
+      font-size: 0.9375rem;
+      font-weight: 600;
+      color: var(--color-text-muted);
+      border: none;
+      background: none;
+      cursor: pointer;
+      position: relative;
+      white-space: nowrap;
+    }
+    .dash-tab-btn.active {
+      color: var(--color-slate-900);
+    }
+    .dash-tab-btn.active::after {
+      content: '';
+      position: absolute;
+      bottom: -1px;
+      left: 0;
+      right: 0;
+      height: 2px;
+      background-color: var(--color-amber-500);
+    }
+
+    /* Modal styling */
+    .modal-overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(15, 23, 42, 0.6);
+      backdrop-filter: blur(8px);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 1000;
+      padding: 1rem;
+    }
+  </style>
+</head>
+<body>
+  <div id="live-notice-banner" style="display:none;"></div>
+
+  <header class="site-header">
+    <div class="container nav-container">
+      <a href="/" class="brand-wordmark">
+        <span class="title">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/></svg>
+          Houston Roofing
+        </span>
+        <span class="tagline">&amp; Construction · Portal</span>
+      </a>
+      <nav aria-label="Primary Navigation">
+        <ul class="nav-links">
+          <li><a href="/services" class="nav-link">Services</a></li>
+          <li><a href="/dashboard" class="nav-link active">Portal</a></li>
+          <li><a href="/updates" class="nav-link">Updates</a></li>
+          <li><a href="/faq" class="nav-link">FAQ</a></li>
+          <li><a href="/contact" class="nav-link">Contact</a></li>
+        </ul>
+      </nav>
+      <div class="nav-actions" id="auth-nav-container">
+        <!-- Rendered by auth.js -->
+      </div>
+    </div>
+  </header>
+
+  <main style="padding: 3rem 0 6rem;">
+    <div class="container">
+      <div style="display:flex; justify-content:space-between; align-items:flex-end; margin-bottom:2rem; flex-wrap:wrap; gap:1rem;">
+        <div>
+          <p style="text-transform:uppercase; font-size:0.8125rem; font-weight:700; color:var(--color-amber-600); letter-spacing:0.08em; margin-bottom:0.25rem;">
+            Customer Portal
+          </p>
+          <h1 style="font-size:2rem; margin:0;">Welcome back, <span id="dash-user-name">Customer</span></h1>
+        </div>
+        <a href="/book" class="btn btn-clay-primary btn-sm">+ Book New Inspection</a>
+      </div>
+
+      <!-- Dashboard Tabs -->
+      <div class="dash-tabs-nav">
+        <button class="dash-tab-btn active" data-tab="appointments">📅 Appointments</button>
+        <button class="dash-tab-btn" data-tab="projects">🔨 Active Projects &amp; Tracker</button>
+        <button class="dash-tab-btn" data-tab="notifications">🔔 Notifications</button>
+        <button class="dash-tab-btn" data-tab="profile">👤 Account Profile</button>
+      </div>
+
+      <!-- Tab: Appointments -->
+      <section id="tab-appointments" class="dash-tab-content">
+        <div style="margin-bottom:1.5rem;">
+          <h2 style="font-size:1.25rem; margin-bottom:0.25rem;">Your Scheduled Visits</h2>
+          <p style="font-size:0.875rem; color:var(--color-text-muted);">
+            Manage your visits. You can cancel or reschedule online up to 24 hours prior to scheduled arrival.
+          </p>
+        </div>
+        <div id="appointments-list">
+          <div style="text-align:center; padding:3rem 0;">
+            <div class="spinner" style="border-top-color:var(--color-amber-500); width:32px; height:32px;"></div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Tab: Projects & Tracker -->
+      <section id="tab-projects" class="dash-tab-content" style="display:none;">
+        <div style="margin-bottom:1.5rem;">
+          <h2 style="font-size:1.25rem; margin-bottom:0.25rem;">Roofing Projects &amp; Live Tracking</h2>
+          <p style="font-size:0.875rem; color:var(--color-text-muted);">
+            Follow your project stage-by-stage with photo updates from your in-house project manager.
+          </p>
+        </div>
+        <div id="projects-list">
+          <div style="text-align:center; padding:3rem 0;">
+            <div class="spinner" style="border-top-color:var(--color-amber-500); width:32px; height:32px;"></div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Tab: Notifications -->
+      <section id="tab-notifications" class="dash-tab-content" style="display:none;">
+        <div style="margin-bottom:1.5rem;">
+          <h2 style="font-size:1.25rem; margin-bottom:0.25rem;">In-App Alerts &amp; Updates</h2>
+          <p style="font-size:0.875rem; color:var(--color-text-muted);">
+            Real-time stage notifications, estimate deliveries, and weather alerts.
+          </p>
+        </div>
+        <div id="notifications-list">
+          <!-- Populated by dashboard.js -->
+        </div>
+      </section>
+
+      <!-- Tab: Profile -->
+      <section id="tab-profile" class="dash-tab-content" style="display:none;">
+        <div class="card-flat" style="max-width:600px; padding:2rem;">
+          <h2 style="font-size:1.25rem; margin-bottom:1.5rem;">Account &amp; Property Information</h2>
+          <form id="profile-edit-form">
+            <div class="form-group">
+              <label class="form-label" for="profile-name">Full Name</label>
+              <input type="text" id="profile-name" class="form-input">
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="profile-phone">Phone Number</label>
+              <input type="tel" id="profile-phone" class="form-input">
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="profile-street">Primary Property Street</label>
+              <input type="text" id="profile-street" class="form-input">
+            </div>
+            <div style="display:grid; grid-template-columns:2fr 1fr; gap:1rem;">
+              <div class="form-group">
+                <label class="form-label" for="profile-city">City</label>
+                <input type="text" id="profile-city" class="form-input" value="Houston">
+              </div>
+              <div class="form-group">
+                <label class="form-label" for="profile-zip">ZIP</label>
+                <input type="text" id="profile-zip" class="form-input">
+              </div>
+            </div>
+            <button type="submit" class="btn btn-clay-primary btn-sm">Save Profile Changes</button>
+          </form>
+        </div>
+      </section>
+    </div>
+  </main>
+
+  <!-- Reschedule Modal -->
+  <div id="reschedule-modal" class="modal-overlay" style="display:none;">
+    <div class="card-flat" style="background:#ffffff; max-width:480px; width:100%; padding:2rem; box-shadow:0 20px 40px rgba(0,0,0,0.3);">
+      <h3 style="font-size:1.25rem; margin-bottom:0.5rem;">Reschedule Appointment</h3>
+      <p style="font-size:0.875rem; color:var(--color-text-muted); margin-bottom:1.25rem;">
+        Select a new open slot. Must be at least 24 hours in advance.
+      </p>
+
+      <div class="form-group">
+        <label class="form-label" for="reschedule-date-input">Select New Date</label>
+        <input type="date" id="reschedule-date-input" class="form-input">
+      </div>
+
+      <div class="form-group">
+        <label class="form-label">Available Time Slots</label>
+        <div id="reschedule-slots-container" class="slots-grid" style="max-height:180px; overflow-y:auto;">
+          <!-- Slot buttons -->
+        </div>
+      </div>
+
+      <div style="display:flex; justify-content:flex-end; gap:0.75rem; margin-top:1.5rem; border-top:1px solid var(--color-border); padding-top:1rem;">
+        <button type="button" id="close-reschedule-modal-btn" class="btn btn-flat-secondary btn-sm">Cancel</button>
+        <button type="button" id="confirm-reschedule-btn" class="btn btn-clay-primary btn-sm" disabled>Confirm Reschedule</button>
+      </div>
+    </div>
+  </div>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="compliance-box">
+        <strong>Texas Insurance Law Disclosure:</strong> We are roofing contractors, not public adjusters. Deductibles cannot be waived or absorbed under Texas law.
+      </div>
+      <div style="display:flex; justify-content:space-between; margin-top:2rem; font-size:0.75rem; color:#94a3b8;">
+        <div>&copy; 2026 Houston Roofing &amp; Construction.</div>
+        <div>Design concept, not the official website.</div>
+      </div>
+    </div>
+  </footer>
+
+  <script type="module" src="/js/ui.js"></script>
+  <script type="module" src="/js/auth.js"></script>
+  <script type="module" src="/js/dashboard.js"></script>
+</body>
+</html>

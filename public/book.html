@@ -1,0 +1,439 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noindex,nofollow">
+  <title>Book a Free Roof Inspection Online | Houston Roofing &amp; Construction</title>
+  <meta name="description" content="Pick a time that works, confirm instantly, and follow your project online with live progress updates.">
+  <link rel="stylesheet" href="/css/tokens.css">
+  <link rel="stylesheet" href="/css/base.css">
+  <link rel="stylesheet" href="/css/components.css">
+  <link rel="stylesheet" href="/css/animations.css">
+  <style>
+    /* Wizard Steps Bar */
+    .steps-indicator {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 2.5rem;
+      position: relative;
+    }
+    .steps-indicator::before {
+      content: '';
+      position: absolute;
+      top: 18px;
+      left: 10%;
+      right: 10%;
+      height: 2px;
+      background: var(--color-border);
+      z-index: 1;
+    }
+    .step-indicator-item {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      position: relative;
+      z-index: 2;
+      flex: 1;
+    }
+    .step-circle {
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      background: #ffffff;
+      border: 2px solid var(--color-border);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 700;
+      font-size: 0.875rem;
+      color: var(--color-text-muted);
+      margin-bottom: 0.5rem;
+      transition: all 0.2s ease;
+    }
+    .step-indicator-item.active .step-circle {
+      border-color: var(--color-amber-500);
+      background: var(--color-amber-500);
+      color: #0f172a;
+      box-shadow: 0 0 0 4px rgba(245, 158, 11, 0.2);
+    }
+    .step-indicator-item.completed .step-circle {
+      border-color: var(--color-teal-600);
+      background: var(--color-teal-600);
+      color: #ffffff;
+    }
+    .step-label {
+      font-size: 0.8125rem;
+      font-weight: 600;
+      color: var(--color-text-muted);
+    }
+    .step-indicator-item.active .step-label {
+      color: var(--color-slate-900);
+    }
+
+    .service-type-option {
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-md);
+      padding: 1.25rem;
+      cursor: pointer;
+      background: #ffffff;
+      transition: all 0.15s ease;
+    }
+    .service-type-option:hover {
+      border-color: var(--color-amber-500);
+      background: var(--color-canvas);
+    }
+    .service-type-option.selected {
+      border-color: var(--color-amber-500);
+      box-shadow: 0 0 0 2px var(--color-amber-500);
+      background: var(--color-amber-50);
+    }
+  </style>
+</head>
+<body>
+  <div id="live-notice-banner" style="display:none;"></div>
+
+  <header class="site-header">
+    <div class="container nav-container">
+      <a href="/" class="brand-wordmark">
+        <span class="title">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/></svg>
+          Houston Roofing
+        </span>
+        <span class="tagline">&amp; Construction · Concept</span>
+      </a>
+      <nav aria-label="Primary Navigation">
+        <ul class="nav-links">
+          <li><a href="/services" class="nav-link">Services</a></li>
+          <li><a href="/residential" class="nav-link">Residential</a></li>
+          <li><a href="/commercial" class="nav-link">Commercial</a></li>
+          <li><a href="/why-us" class="nav-link">Why Us</a></li>
+          <li><a href="/reviews" class="nav-link">Reviews</a></li>
+          <li><a href="/updates" class="nav-link">Updates</a></li>
+          <li><a href="/faq" class="nav-link">FAQ</a></li>
+          <li><a href="/contact" class="nav-link">Contact</a></li>
+        </ul>
+      </nav>
+      <div class="nav-actions" id="auth-nav-container">
+        <a href="/login" class="nav-link">Sign in</a>
+      </div>
+    </div>
+  </header>
+
+  <main style="padding: 3rem 0 5rem;">
+    <div class="container" style="max-width: 840px;">
+      <div style="text-align: center; margin-bottom: 2rem;">
+        <h1 style="font-size: 2.25rem; margin-bottom: 0.5rem;">Online Automated Booking</h1>
+        <p style="color: var(--color-text-muted);">
+          Guaranteed reservation in real time. No waiting for a callback.
+        </p>
+      </div>
+
+      <!-- 4-Step Indicator -->
+      <div class="steps-indicator">
+        <div class="step-indicator-item active">
+          <div class="step-circle">1</div>
+          <span class="step-label">Service</span>
+        </div>
+        <div class="step-indicator-item">
+          <div class="step-circle">2</div>
+          <span class="step-label">Date &amp; Slot</span>
+        </div>
+        <div class="step-indicator-item">
+          <div class="step-circle">3</div>
+          <span class="step-label">Details</span>
+        </div>
+        <div class="step-indicator-item">
+          <div class="step-circle">4</div>
+          <span class="step-label">Confirm</span>
+        </div>
+      </div>
+
+      <!-- STEP 1: Select Service -->
+      <section id="step-1-panel" class="wizard-step-panel">
+        <div class="card-flat" style="padding: 2rem;">
+          <h2 style="font-size: 1.5rem; margin-bottom: 0.5rem;">Select Your Appointment Type</h2>
+          <p style="color: var(--color-text-muted); font-size: 0.875rem; margin-bottom: 1.5rem;">
+            Choose the visit that best matches your property needs.
+          </p>
+
+          <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 1rem; margin-bottom: 1.5rem;">
+            <div class="service-type-option selected" data-type="free-inspection" data-label="Free roof inspection">
+              <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:0.375rem;">
+                <strong style="color:var(--color-slate-900);">Free Roof Inspection</strong>
+                <span style="font-size:0.75rem; color:var(--color-teal-600); font-weight:700;">60 min</span>
+              </div>
+              <p style="font-size:0.8125rem; color:var(--color-text-muted); margin:0;">
+                Full-system evaluation with attic check and photo report.
+              </p>
+            </div>
+
+            <div class="service-type-option" data-type="storm-assessment" data-label="Storm or hail damage assessment">
+              <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:0.375rem;">
+                <strong style="color:var(--color-slate-900);">Storm or Hail Assessment</strong>
+                <span style="font-size:0.75rem; color:var(--color-teal-600); font-weight:700;">90 min</span>
+              </div>
+              <p style="font-size:0.8125rem; color:var(--color-text-muted); margin:0;">
+                Documented damage report you can share with your insurer.
+              </p>
+            </div>
+
+            <div class="service-type-option" data-type="free-estimate" data-label="Free estimate (Replacement/Metal/Siding)">
+              <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:0.375rem;">
+                <strong style="color:var(--color-slate-900);">Free Estimate</strong>
+                <span style="font-size:0.75rem; color:var(--color-teal-600); font-weight:700;">60 min</span>
+              </div>
+              <p style="font-size:0.8125rem; color:var(--color-text-muted); margin:0;">
+                Review Good / Better / Best replacement options &amp; pricing.
+              </p>
+            </div>
+
+            <div class="service-type-option" data-type="repair-visit" data-label="Repair visit">
+              <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:0.375rem;">
+                <strong style="color:var(--color-slate-900);">Repair Visit</strong>
+                <span style="font-size:0.75rem; color:var(--color-teal-600); font-weight:700;">60 min</span>
+              </div>
+              <p style="font-size:0.8125rem; color:var(--color-text-muted); margin:0;">
+                Targeted visit for active leaks, pipe boots, or flashing.
+              </p>
+            </div>
+
+            <div class="service-type-option" data-type="commercial-walkthrough" data-label="Commercial / Multi-family walkthrough">
+              <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:0.375rem;">
+                <strong style="color:var(--color-slate-900);">Commercial Walkthrough</strong>
+                <span style="font-size:0.75rem; color:var(--color-teal-600); font-weight:700;">90 min</span>
+              </div>
+              <p style="font-size:0.8125rem; color:var(--color-text-muted); margin:0;">
+                On-site survey for businesses or apartment communities.
+              </p>
+            </div>
+
+            <div class="service-type-option" data-type="phone-consult" data-label="Phone consultation">
+              <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:0.375rem;">
+                <strong style="color:var(--color-slate-900);">Phone Consultation</strong>
+                <span style="font-size:0.75rem; color:var(--color-teal-600); font-weight:700;">20 min</span>
+              </div>
+              <p style="font-size:0.8125rem; color:var(--color-text-muted); margin:0;">
+                A quick call to discuss options or insurance guidance.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- STEP 2: Date & Available Slots -->
+      <section id="step-2-panel" class="wizard-step-panel" style="display:none;">
+        <div class="card-flat" style="padding: 2rem;">
+          <h2 style="font-size: 1.5rem; margin-bottom: 0.5rem;">Pick an Open Date &amp; Time Slot</h2>
+          <p style="color: var(--color-text-muted); font-size: 0.875rem; margin-bottom: 1.5rem;">
+            Availability is calculated in real time against inspector schedules and double-booking capacity.
+          </p>
+
+          <div class="form-group" style="max-width: 320px;">
+            <label class="form-label" for="booking-date-input">Select Date</label>
+            <input type="date" id="booking-date-input" class="form-input">
+          </div>
+
+          <div style="margin-top: 1.5rem;">
+            <label class="form-label">Available Slots (America/Chicago)</label>
+            <div id="slots-container" class="slots-grid">
+              <!-- Dynamically populated slot buttons -->
+            </div>
+          </div>
+
+          <div style="display: flex; justify-content: space-between; margin-top: 2rem; padding-top: 1.5rem; border-top: 1px solid var(--color-border);">
+            <button type="button" id="back-to-step-1-btn" class="btn btn-flat-secondary">&larr; Back to services</button>
+            <button type="button" id="to-step-3-btn" class="btn btn-clay-primary" disabled>Next: Property details &rarr;</button>
+          </div>
+        </div>
+      </section>
+
+      <!-- STEP 3: Property Details Form -->
+      <section id="step-3-panel" class="wizard-step-panel" style="display:none;">
+        <div class="card-flat" style="padding: 2rem;">
+          <h2 style="font-size: 1.5rem; margin-bottom: 0.5rem;">Property &amp; Contact Details</h2>
+          <p style="color: var(--color-text-muted); font-size: 0.875rem; margin-bottom: 1.5rem;">
+            Enter your property address and contact information for your project manager.
+          </p>
+
+          <form id="booking-details-form">
+            <!-- Honeypot anti-spam field -->
+            <div style="display:none;" aria-hidden="true">
+              <input type="text" name="website" tabindex="-1" autocomplete="off">
+            </div>
+
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 1rem;">
+              <div class="form-group">
+                <label class="form-label" for="input-name">Full Name *</label>
+                <input type="text" id="input-name" name="name" class="form-input" required placeholder="Jane Doe">
+              </div>
+
+              <div class="form-group">
+                <label class="form-label" for="input-phone">Phone Number *</label>
+                <input type="tel" id="input-phone" name="phone" class="form-input" required placeholder="(832) 555-0199">
+              </div>
+
+              <div class="form-group">
+                <label class="form-label" for="input-email">Email Address *</label>
+                <input type="email" id="input-email" name="email" class="form-input" required placeholder="jane@example.com">
+              </div>
+
+              <div class="form-group">
+                <label class="form-label" for="input-propertyType">Property Type *</label>
+                <select id="input-propertyType" name="propertyType" class="form-select" required>
+                  <option value="Single-family home">Single-family home</option>
+                  <option value="Townhome">Townhome</option>
+                  <option value="Commercial building">Commercial building</option>
+                  <option value="Multi-family community">Multi-family community</option>
+                  <option value="Other">Other</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label" for="input-street">Street Address *</label>
+              <input type="text" id="input-street" name="street" class="form-input" required placeholder="14202 Spring Meadow Ln">
+            </div>
+
+            <div style="display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 1rem;">
+              <div class="form-group">
+                <label class="form-label" for="input-city">City</label>
+                <input type="text" id="input-city" name="city" class="form-input" value="Houston" required>
+              </div>
+              <div class="form-group">
+                <label class="form-label">State</label>
+                <input type="text" class="form-input" value="TX" readonly style="background:var(--color-surface-muted);">
+              </div>
+              <div class="form-group">
+                <label class="form-label" for="input-zip">ZIP Code *</label>
+                <input type="text" id="input-zip" name="zip" class="form-input" required placeholder="77065">
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label" for="input-notes">Notes or specific concerns (Optional)</label>
+              <textarea id="input-notes" name="notes" class="form-textarea" placeholder="E.g., leak over master bedroom ceiling, noticed missing shingles after storm..."></textarea>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label" for="input-howDidYouHear">How did you hear about us?</label>
+              <select id="input-howDidYouHear" name="howDidYouHear" class="form-select">
+                <option value="Google search">Google search</option>
+                <option value="Referral">Friend / Neighbor referral</option>
+                <option value="Facebook">Facebook</option>
+                <option value="Instagram">Instagram</option>
+                <option value="Radio">Radio</option>
+                <option value="Direct mail">Direct mail</option>
+                <option value="Other">Other</option>
+              </select>
+            </div>
+
+            <!-- Texas statutory contact consent -->
+            <div class="form-group" style="background:var(--color-canvas); padding:1rem; border-radius:8px; border:1px solid var(--color-border);">
+              <label style="display:flex; align-items:flex-start; gap:0.625rem; font-size:0.875rem; color:var(--color-slate-800); cursor:pointer;">
+                <input type="checkbox" name="consent" id="consent-checkbox" required style="margin-top:0.25rem;">
+                <span>I agree that Houston Roofing &amp; Construction may contact me via call or in-app message regarding this appointment and my roofing estimate.</span>
+              </label>
+            </div>
+
+            <div style="display: flex; justify-content: space-between; margin-top: 2rem; padding-top: 1.5rem; border-top: 1px solid var(--color-border);">
+              <button type="button" id="back-to-step-2-btn" class="btn btn-flat-secondary">&larr; Back to time</button>
+              <button type="submit" class="btn btn-clay-primary">Proceed to confirmation &rarr;</button>
+            </div>
+          </form>
+        </div>
+      </section>
+
+      <!-- STEP 4: Review & Auth Check -->
+      <section id="step-4-panel" class="wizard-step-panel" style="display:none;">
+        <div class="card-flat" style="padding: 2rem;">
+          <h2 style="font-size: 1.5rem; margin-bottom: 0.5rem;">Review &amp; Finalize Booking</h2>
+          <p style="color: var(--color-text-muted); font-size: 0.875rem; margin-bottom: 1.5rem;">
+            Please review your appointment summary. Sign in is required so you can track your project in the customer portal.
+          </p>
+
+          <!-- Summary card -->
+          <div style="background: var(--color-canvas); border: 1px solid var(--color-border); border-radius: 8px; padding: 1.25rem; margin-bottom: 1.5rem;">
+            <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(200px, 1fr)); gap:1rem; font-size:0.875rem;">
+              <div>
+                <span style="font-size:0.75rem; font-weight:700; text-transform:uppercase; color:var(--color-text-muted);">Service</span>
+                <p id="summary-service" style="font-weight:600; color:var(--color-slate-900); margin:0.25rem 0 0;">—</p>
+              </div>
+              <div>
+                <span style="font-size:0.75rem; font-weight:700; text-transform:uppercase; color:var(--color-text-muted);">Date &amp; Time</span>
+                <p id="summary-datetime" style="font-weight:600; color:var(--color-slate-900); margin:0.25rem 0 0;">—</p>
+              </div>
+              <div>
+                <span style="font-size:0.75rem; font-weight:700; text-transform:uppercase; color:var(--color-text-muted);">Client</span>
+                <p id="summary-customer" style="font-weight:600; color:var(--color-slate-900); margin:0.25rem 0 0;">—</p>
+              </div>
+              <div>
+                <span style="font-size:0.75rem; font-weight:700; text-transform:uppercase; color:var(--color-text-muted);">Location</span>
+                <p id="summary-address" style="font-weight:600; color:var(--color-slate-900); margin:0.25rem 0 0;">—</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Dynamic Auth Prompt (Google / Phone / Demo Login) -->
+          <div id="step-4-auth-prompt" style="margin-bottom: 1.5rem;">
+            <!-- Populated by booking.js -->
+          </div>
+
+          <div style="display: flex; justify-content: space-between; margin-top: 2rem; padding-top: 1.5rem; border-top: 1px solid var(--color-border);">
+            <button type="button" id="back-to-step-3-btn" class="btn btn-flat-secondary">&larr; Edit details</button>
+            <button type="button" id="confirm-booking-btn" class="btn btn-clay-primary" disabled>Confirm Free Inspection</button>
+          </div>
+        </div>
+      </section>
+
+      <!-- STEP 5: Confirmation & Calendar Export -->
+      <section id="step-confirmation-panel" class="wizard-step-panel" style="display:none;">
+        <div class="card-flat" style="padding: 2.5rem; text-align: center; border-top: 4px solid var(--color-teal-600);">
+          <div style="width: 56px; height: 56px; border-radius: 50%; background: var(--color-teal-50); color: var(--color-teal-600); font-size: 1.75rem; display: flex; align-items: center; justify-content: center; margin: 0 auto 1.25rem;">
+            ✓
+          </div>
+
+          <h2 style="font-size: 1.75rem; margin-bottom: 0.5rem; color: var(--color-slate-900);">Appointment Confirmed!</h2>
+          <p style="color: var(--color-text-muted); max-width: 500px; margin: 0 auto 1.5rem;">
+            Your inspection slot has been reserved. Your in-house project manager will arrive at your property at the scheduled time.
+          </p>
+
+          <div style="background: var(--color-canvas); padding: 1.25rem; border-radius: 8px; max-width: 480px; margin: 0 auto 2rem; text-align: left; font-size: 0.875rem;">
+            <p style="margin-bottom: 0.25rem;"><strong>Reference ID:</strong> <span id="conf-reference" style="font-family:monospace;">—</span></p>
+            <p style="margin-bottom: 0.25rem;"><strong>Service:</strong> <span id="conf-service">—</span></p>
+            <p style="margin-bottom: 0;"><strong>Date &amp; Time:</strong> <span id="conf-datetime">—</span></p>
+          </div>
+
+          <!-- Add to Calendar Buttons -->
+          <div style="display: flex; justify-content: center; gap: 1rem; flex-wrap: wrap; margin-bottom: 2rem;">
+            <a id="add-google-cal-btn" target="_blank" rel="noopener noreferrer" class="btn btn-flat-dark">
+              📅 Add to Google Calendar
+            </a>
+            <a id="download-ics-btn" class="btn btn-flat-secondary">
+              📥 Download .ics Calendar File
+            </a>
+          </div>
+
+          <a href="/dashboard" class="btn btn-clay-primary">View in Customer Portal &rarr;</a>
+        </div>
+      </section>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="compliance-box">
+        <strong>Texas Insurance Law Disclosure:</strong> We are roofing contractors, not public adjusters. Deductibles cannot be waived or absorbed under Texas law.
+      </div>
+      <div style="display:flex; justify-content:space-between; margin-top:2rem; font-size:0.75rem; color:#94a3b8;">
+        <div>&copy; 2026 Houston Roofing &amp; Construction.</div>
+        <div>Design concept, not the official website.</div>
+      </div>
+    </div>
+  </footer>
+
+  <script type="module" src="/js/ui.js"></script>
+  <script type="module" src="/js/auth.js"></script>
+  <script type="module" src="/js/booking.js"></script>
+</body>
+</html>

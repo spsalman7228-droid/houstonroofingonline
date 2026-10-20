@@ -1,0 +1,70 @@
+{
+  "_readme": "Original-wording FAQs. 'confirm' means the answer depends on business-specific facts to verify with the client. Insurance answers follow Texas Department of Insurance guidance.",
+  "groups": [
+    {
+      "key": "getting-started",
+      "title": "Getting started",
+      "items": [
+        { "q": "How do I get a quote?", "a": "Book an inspection online. We look at the whole roof system, document what we find, then walk you through repair and replacement options.", "confirm": false },
+        { "q": "Is the inspection free?", "a": "The business advertises free inspections and estimates. Confirm any limits (area, type of property) before publishing.", "confirm": true },
+        { "q": "How does online booking work?", "a": "Choose a service, pick an open time, enter your details and confirm. Sign in with Google or your phone number so you can see your appointment and project progress any time.", "confirm": false },
+        { "q": "Can I reschedule or cancel?", "a": "Yes. You can change or cancel from your dashboard up to 24 hours before your appointment.", "confirm": false }
+      ]
+    },
+    {
+      "key": "timeline",
+      "title": "Process and timeline",
+      "items": [
+        { "q": "How long does a roof replacement take?", "a": "Most home replacements take one to two days on site, depending on roof size, complexity and weather. Larger or multi-building jobs are scheduled in phases.", "confirm": true },
+        { "q": "What happens before work starts?", "a": "We inspect, confirm scope and options, check permit and HOA requirements, order materials and schedule the install. Each step shows on your project timeline.", "confirm": false },
+        { "q": "How will I know what is happening?", "a": "Your dashboard shows the current stage, notes and photos from our team, and a history of every update.", "confirm": false }
+      ]
+    },
+    {
+      "key": "repair-vs-replace",
+      "title": "Repair or replace",
+      "items": [
+        { "q": "Do I need a full replacement?", "a": "Not always. Isolated damage can often be repaired. Widespread wear, storm damage or age may make replacement the better long-term choice. We show you both paths.", "confirm": false },
+        { "q": "Why do Houston roofs get replaced so often?", "a": "Heat, UV, humidity, wind and hail all age roofs here, and insurance requirements often influence timing as well. Age, storm history and current condition drive the decision.", "confirm": false },
+        { "q": "What does an inspection cover?", "a": "Shingles, flashing, ventilation, penetrations and common trouble spots, plus the attic where accessible. You get a clear list of what needs attention now versus later.", "confirm": false }
+      ]
+    },
+    {
+      "key": "insurance",
+      "title": "Storm damage and insurance",
+      "items": [
+        { "q": "Why is my insurer asking me to replace a roof that is not leaking?", "a": "Insurers can set requirements based on roof age or storm history. Read your notice carefully and ask your insurer or agent what applies to your policy.", "confirm": false },
+        { "q": "Do you handle my insurance claim?", "a": "No. In Texas a roofer cannot act as your public adjuster while also doing the work. We document the damage with photos and a written report that you can share with your insurer. You file and manage your own claim.", "confirm": false },
+        { "q": "Will you cover my deductible?", "a": "No. Texas law prohibits contractors from waiving, rebating or absorbing a deductible. You owe the deductible to the contractor.", "confirm": false },
+        { "q": "How long does my insurer have to respond?", "a": "Per Texas Department of Insurance guidance, an insurer has 15 business days to acknowledge a claim, and once it agrees to pay it has five business days to get payment started. Check the TDI page for current details.", "confirm": false, "source": "https://www.tdi.texas.gov/column/get-your-insurance-claim-paid.html" },
+        { "q": "Should I get more than one bid?", "a": "Yes. TDI recommends getting bids from several contractors when choosing who repairs your roof.", "confirm": false }
+      ]
+    },
+    {
+      "key": "warranty",
+      "title": "Materials and warranties",
+      "items": [
+        { "q": "Does a bigger warranty number mean a better roof?", "a": "Not by itself. Correct installation, proper warranty registration and coverage that fits how long you will own the property matter more than the headline number.", "confirm": false },
+        { "q": "What warranty will I get?", "a": "TODO: confirm exact manufacturer and workmanship warranty names, terms and years with the client.", "confirm": true },
+        { "q": "Do you push one brand?", "a": "The business says it is manufacturer-neutral and presents options across systems. Confirm which manufacturers it installs.", "confirm": true }
+      ]
+    },
+    {
+      "key": "credentials",
+      "title": "Trust and credentials",
+      "items": [
+        { "q": "Does Texas license roofers?", "a": "No. Texas does not require a state roofing license. RCAT offers a voluntary license, which the business states it holds.", "confirm": true },
+        { "q": "What is GAF Master Elite?", "a": "A top contractor tier from GAF, the largest U.S. shingle maker. Certified contractors can offer GAF's strongest manufacturer warranties. You can verify a contractor on GAF's website.", "confirm": true },
+        { "q": "Do you use subcontractors?", "a": "The business says its project managers are in-house employees and that it does not subcontract roof projects. Confirm before publishing.", "confirm": true }
+      ]
+    },
+    {
+      "key": "commercial",
+      "title": "Commercial and multi-family",
+      "items": [
+        { "q": "How do you work around tenants and operations?", "a": "We plan phased schedules, controlled access and clear communication with property managers.", "confirm": true },
+        { "q": "Where do we start for a commercial property?", "a": "With an inspection or walkthrough. It shows current condition and helps decide whether to replace now, repair, or plan for later.", "confirm": false }
+      ]
+    }
+  ]
+}

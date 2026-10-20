@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noindex,nofollow">
+  <title>Storm Alerts &amp; Updates | Houston Roofing &amp; Construction</title>
+  <meta name="description" content="Live notices on storm response, weather scheduling delays, and operational updates in Greater Houston.">
+  <link rel="stylesheet" href="/css/tokens.css">
+  <link rel="stylesheet" href="/css/base.css">
+  <link rel="stylesheet" href="/css/components.css">
+  <link rel="stylesheet" href="/css/animations.css">
+</head>
+<body>
+  <div id="live-notice-banner" style="display:none;"></div>
+
+  <header class="site-header">
+    <div class="container nav-container">
+      <a href="/" class="brand-wordmark">
+        <span class="title">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/></svg>
+          Houston Roofing
+        </span>
+        <span class="tagline">&amp; Construction · Concept</span>
+      </a>
+      <nav aria-label="Primary Navigation">
+        <ul class="nav-links">
+          <li><a href="/services" class="nav-link">Services</a></li>
+          <li><a href="/residential" class="nav-link">Residential</a></li>
+          <li><a href="/commercial" class="nav-link">Commercial</a></li>
+          <li><a href="/why-us" class="nav-link">Why Us</a></li>
+          <li><a href="/reviews" class="nav-link">Reviews</a></li>
+          <li><a href="/updates" class="nav-link active">Updates</a></li>
+          <li><a href="/faq" class="nav-link">FAQ</a></li>
+          <li><a href="/contact" class="nav-link">Contact</a></li>
+        </ul>
+      </nav>
+      <div class="nav-actions" id="auth-nav-container">
+        <a href="/login" class="nav-link">Sign in</a>
+        <a href="/book" class="btn btn-clay-primary btn-sm">Book inspection</a>
+      </div>
+    </div>
+  </header>
+
+  <main style="padding: 4rem 0 6rem;">
+    <div class="container">
+      <div style="max-width: 760px; margin-bottom: 3rem;">
+        <p style="text-transform:uppercase; font-size:0.8125rem; font-weight:700; color:var(--color-amber-600); letter-spacing:0.08em; margin-bottom:0.5rem;">
+          Public Announcements
+        </p>
+        <h1>Live Storm Alerts &amp; Scheduling Updates</h1>
+        <p style="font-size:1.125rem; margin-top:0.75rem; color:var(--color-text-muted);">
+          Real-time notices on regional weather developments, severe wind/hail response priority windows, and holiday operational schedules across Greater Houston.
+        </p>
+      </div>
+
+      <!-- Feed Container -->
+      <div id="updates-feed-container" style="display:flex; flex-direction:column; gap:1.25rem;">
+        <!-- Loading spinner -->
+        <div style="text-align:center; padding:3rem 0;">
+          <div class="spinner" style="border-top-color:var(--color-amber-500); width:32px; height:32px;"></div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="compliance-box">
+        <strong>Texas Insurance Law Disclosure:</strong> We are roofing contractors, not public adjusters. Deductibles cannot be waived or absorbed under Texas law.
+      </div>
+      <div style="display:flex; justify-content:space-between; margin-top:2rem; font-size:0.75rem; color:#94a3b8;">
+        <div>&copy; 2026 Houston Roofing &amp; Construction.</div>
+        <div>Design concept, not the official website.</div>
+      </div>
+    </div>
+  </footer>
+
+  <script type="module" src="/js/ui.js"></script>
+  <script type="module" src="/js/auth.js"></script>
+  <script type="module">
+    async function loadUpdates() {
+      const container = document.getElementById('updates-feed-container');
+      try {
+        const res = await fetch('/api/public/notices');
+        const data = await res.json();
+        const notices = data.notices || [];
+
+        if (notices.length === 0) {
+          container.innerHTML = `<div class="card-flat" style="padding:2.5rem; text-align:center;"><p style="font-weight:600;">No active storm alerts or schedule advisories at this time.</p></div>`;
+          return;
+        }
+
+        container.innerHTML = notices.map(n => {
+          let badgeColor = 'background:#f0f9ff; color:#0369a1; border:1px solid #bae6fd;';
+          if (n.severity === 'storm') badgeColor = 'background:#eef2ff; color:#4338ca; border:1px solid #c7d2fe;';
+          if (n.severity === 'schedule') badgeColor = 'background:#fffbeb; color:#b45309; border:1px solid #fde68a;';
+          if (n.severity === 'promo') badgeColor = 'background:#ecfdf5; color:#047857; border:1px solid #a7f3d0;';
+
+          return `
+            <div class="card-flat" style="border-left: 4px solid ${n.severity === 'storm' ? '#6366f1' : '#f59e0b'};">
+              <div style="display:flex; align-items:center; gap:0.625rem; margin-bottom:0.5rem; flex-wrap:wrap;">
+                <span style="font-size:0.75rem; font-weight:700; text-transform:uppercase; padding:3px 8px; border-radius:4px; ${badgeColor}">
+                  ${n.severity}
+                </span>
+                ${n.pinned ? `<span style="font-size:0.6875rem; font-weight:700; color:#dc2626;">📌 PINNED ADVISORY</span>` : ''}
+                <span style="font-size:0.8125rem; color:var(--color-text-muted);">
+                  Valid: ${new Date(n.startAt).toLocaleDateString()} – ${new Date(n.endAt).toLocaleDateString()}
+                </span>
+              </div>
+              <h3 style="font-size:1.25rem; margin:0 0 0.5rem; color:var(--color-slate-900);">${n.title}</h3>
+              <p style="font-size:0.9375rem; color:var(--color-text-muted); line-height:1.6; margin:0 0 1rem;">${n.body}</p>
+              ${n.severity === 'storm' ? `<a href="/book?service=storm-assessment" class="btn btn-sm btn-clay-primary">Book priority storm assessment &rarr;</a>` : ''}
+            </div>
+          `;
+        }).join('');
+      } catch (e) {
+        container.innerHTML = `<p style="color:red;">Error loading updates.</p>`;
+      }
+    }
+    document.addEventListener('DOMContentLoaded', loadUpdates);
+  </script>
+</body>
+</html>

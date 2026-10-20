@@ -1,0 +1,133 @@
+{
+  "_readme": "One entry per service page or card. Copy is original. claimedByBusiness items come from the business's public materials and need client confirmation. appointmentType maps to settings.json.",
+  "categories": [
+    { "key": "residential", "label": "Residential Roofing" },
+    { "key": "commercial", "label": "Commercial Roofing" },
+    { "key": "multifamily", "label": "Multi-Family Communities" },
+    { "key": "support", "label": "Storm & Support Services" }
+  ],
+  "services": [
+    {
+      "slug": "residential-asphalt-replacement",
+      "category": "residential",
+      "title": "Asphalt shingle roof replacement",
+      "summary": "A full tear-off and new shingle system for homes with aging, storm-worn or insurance-flagged roofs.",
+      "highlights": ["Full-system inspection first", "Tiered options (Good / Better / Best)", "In-house project manager on every job", "Photos and updates in your dashboard"],
+      "whatsIncluded": ["Roof and attic inspection", "Written scope and options", "Permit and HOA check", "Tear-off, deck check, underlayment, flashing, ventilation review", "Final walkthrough and cleanup"],
+      "typicalTimeline": { "install": "Most homes: 1-2 days", "status": "verify", "note": "Business FAQ says 1-2 days; an older blog post says 1-7 days. Confirm." },
+      "appointmentType": "free-inspection",
+      "imageKey": "asphalt-roof",
+      "meta": { "title": "Asphalt Roof Replacement in Houston", "description": "Asphalt shingle roof replacement for Houston homes with honest options and online project tracking." }
+    },
+    {
+      "slug": "residential-metal-replacement",
+      "category": "residential",
+      "title": "Metal roof replacement",
+      "summary": "Long-life metal roofing for owners who plan to stay and want strong heat reflection and storm resilience.",
+      "highlights": ["Built for Houston heat and wind", "Long lifespan", "Multiple profiles and colors (TODO: confirm panel types)"],
+      "whatsIncluded": ["Inspection and structure check", "Panel and trim options", "Detailed scope and schedule", "Installation and final inspection"],
+      "typicalTimeline": { "install": "TODO: confirm", "status": "verify" },
+      "appointmentType": "free-estimate",
+      "imageKey": "metal-roof",
+      "meta": { "title": "Metal Roof Replacement in Houston", "description": "Metal roofing for Houston homes: durable, heat-reflective and built for storm season." }
+    },
+    {
+      "slug": "roof-repair",
+      "category": "residential",
+      "title": "Roof repair, storm and hail",
+      "summary": "Leaks, missing shingles, flashing failures and storm or hail damage, with an honest answer on repair versus replacement.",
+      "highlights": ["Leak tracing to the real source", "Storm and hail documentation with photos", "Repair-first mindset when a repair is enough"],
+      "whatsIncluded": ["Inspection and photo report", "Repair scope with price", "Temporary protection when needed (TODO: confirm tarping offer)"],
+      "typicalTimeline": { "install": "Often 1 day for typical repairs; deeper damage can take several days", "status": "verify" },
+      "appointmentType": "storm-assessment",
+      "imageKey": "storm-damage",
+      "meta": { "title": "Roof Repair & Storm Damage in Houston", "description": "Fast, honest roof repair and hail or storm damage assessments in Houston." }
+    },
+    {
+      "slug": "roof-inspection-maintenance",
+      "category": "residential",
+      "title": "Roof inspection and maintenance",
+      "summary": "Catch small problems early. We check the full system and tell you what needs attention now versus later.",
+      "highlights": ["Free inspection offered by the business", "Photo-based findings", "Maintenance plans available for commercial properties (per business profile)"],
+      "whatsIncluded": ["Shingles, flashing, vents and penetrations", "Attic and ventilation check where accessible", "Prioritized findings list"],
+      "typicalTimeline": { "visit": "About 45-90 minutes for a typical home", "status": "verify" },
+      "appointmentType": "free-inspection",
+      "imageKey": "inspection",
+      "meta": { "title": "Free Roof Inspection in Houston", "description": "Book a free roof inspection online and get a clear, photo-backed report." }
+    },
+    {
+      "slug": "siding",
+      "category": "residential",
+      "title": "Siding replacement",
+      "summary": "Durable fiber cement and wood siding, with vinyl also shown in the business gallery.",
+      "highlights": ["Assessment of damage and moisture", "Material comparison", "Coordinated with roofing when needed"],
+      "whatsIncluded": ["Inspection", "Material options", "Installation", "Final walkthrough"],
+      "typicalTimeline": { "install": "TODO: confirm", "status": "verify" },
+      "appointmentType": "free-estimate",
+      "imageKey": "siding",
+      "meta": { "title": "Siding Replacement in Houston", "description": "Fiber cement and wood siding replacement from a Houston roofing team." }
+    },
+    {
+      "slug": "commercial-roofing",
+      "category": "commercial",
+      "title": "Commercial roofing",
+      "summary": "Flat, low-slope and metal systems, coatings, repairs, replacements and new construction, planned around your operations.",
+      "highlights": ["Scheduling that respects business hours", "Systems: TPO, PVC, EPDM, modified bitumen (SBS/APP), BUR, metal and coatings", "Manufacturer-backed warranties (confirm)"],
+      "whatsIncluded": ["Roof survey and moisture check", "Repair vs replace analysis", "Phased scheduling", "Closeout documentation"],
+      "typicalTimeline": { "install": "Depends on size and system", "status": "verify" },
+      "appointmentType": "commercial-walkthrough",
+      "imageKey": "commercial-roof",
+      "meta": { "title": "Commercial Roofing in Houston", "description": "TPO, modified bitumen, metal and coating systems for Houston commercial properties." }
+    },
+    {
+      "slug": "commercial-repair-maintenance",
+      "category": "commercial",
+      "title": "Commercial repair and maintenance",
+      "summary": "Seam work, membrane patching, drainage fixes and recurring inspections that extend roof life and avoid emergency calls.",
+      "highlights": ["Small fixes before they become big ones", "Recurring inspection plans (TODO: confirm program)"],
+      "whatsIncluded": ["Condition report", "Repair scope", "Maintenance schedule"],
+      "typicalTimeline": { "install": "TODO: confirm", "status": "verify" },
+      "appointmentType": "commercial-walkthrough",
+      "imageKey": "commercial-repair",
+      "meta": { "title": "Commercial Roof Repair & Maintenance in Houston", "description": "Low-slope roof repair and maintenance programs for Houston businesses." }
+    },
+    {
+      "slug": "multi-family-roofing",
+      "category": "multifamily",
+      "title": "Multi-family roofing",
+      "summary": "Apartments, townhomes and multi-building communities with phased replacements and resident-aware scheduling.",
+      "highlights": ["Phased plans by building", "Clear communication with property managers", "Warranty coverage across units (confirm)"],
+      "whatsIncluded": ["Property-wide evaluation", "Priority ranking by building", "Phased schedule", "Resident notices (TODO: confirm process)"],
+      "typicalTimeline": { "install": "Days for small properties; several weeks for large phased projects", "status": "verify" },
+      "appointmentType": "commercial-walkthrough",
+      "imageKey": "multifamily",
+      "meta": { "title": "Multi-Family Roofing in Houston", "description": "Phased roof replacement and maintenance for apartments and townhome communities." }
+    },
+    {
+      "slug": "insurance-claim-guidance",
+      "category": "support",
+      "title": "Storm damage and insurance claim guidance",
+      "summary": "We document roof damage with photos and a written report you can share with your insurer. You file and manage your claim.",
+      "highlights": ["Photo-backed damage report", "Plain-English explanation of next steps", "Clear separation between contractor and insurer roles"],
+      "whatsIncluded": ["Damage inspection and report", "Repair or replacement estimate", "Timeline of what to expect"],
+      "mustShow": "compliance.insuranceDisclosure in site.json on this page and in the footer of the page",
+      "typicalTimeline": { "status": "n/a" },
+      "appointmentType": "storm-assessment",
+      "imageKey": "storm-damage",
+      "meta": { "title": "Storm Damage & Insurance Claim Guidance in Houston", "description": "Photo-documented roof damage reports and clear guidance on Texas insurance claims." },
+      "warning": "Do not say or imply that the contractor negotiates claims, acts as adjuster, or covers deductibles. See TDI guidance."
+    },
+    {
+      "slug": "financing",
+      "category": "support",
+      "title": "Roof financing",
+      "summary": "Spread the cost of a roof so your savings stay available for emergencies.",
+      "highlights": ["Financing options available", "Terms TODO"],
+      "whatsIncluded": ["Lender/partner name (TODO: verify)", "Terms and APR range (TODO: verify)"],
+      "appointmentType": "free-estimate",
+      "imageKey": "family-home",
+      "meta": { "title": "Roof Financing in Houston", "description": "Explore financing options for your roof replacement or repair." },
+      "warning": "Do not publish rates or no-payment promises without the client's written terms."
+    }
+  ]
+}

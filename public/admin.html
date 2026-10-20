@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noindex,nofollow">
+  <title>Admin &amp; Staff Console | Houston Roofing &amp; Construction</title>
+  <meta name="description" content="Operational management console for appointments, project stages, announcements, and user directory.">
+  <link rel="stylesheet" href="/css/tokens.css">
+  <link rel="stylesheet" href="/css/base.css">
+  <link rel="stylesheet" href="/css/components.css">
+  <link rel="stylesheet" href="/css/animations.css">
+  <style>
+    .admin-nav-tabs {
+      display: flex;
+      gap: 0.5rem;
+      border-bottom: 2px solid var(--color-border);
+      margin-bottom: 2rem;
+      overflow-x: auto;
+    }
+    .admin-tab-btn {
+      padding: 0.75rem 1.25rem;
+      font-size: 0.9375rem;
+      font-weight: 600;
+      color: var(--color-text-muted);
+      border: none;
+      background: none;
+      cursor: pointer;
+      position: relative;
+      white-space: nowrap;
+    }
+    .admin-tab-btn.active {
+      color: var(--color-slate-900);
+    }
+    .admin-tab-btn.active::after {
+      content: '';
+      position: absolute;
+      bottom: -2px;
+      left: 0;
+      right: 0;
+      height: 2px;
+      background-color: var(--color-amber-500);
+    }
+
+    .kpi-card {
+      background: #ffffff;
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-lg);
+      padding: 1.5rem;
+      box-shadow: var(--shadow-flat-subtle);
+    }
+    .kpi-value {
+      font-family: var(--font-serif);
+      font-size: 2.25rem;
+      font-weight: 700;
+      color: var(--color-slate-900);
+      margin: 0.25rem 0;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      text-align: left;
+      font-size: 0.875rem;
+    }
+    th {
+      background: var(--color-canvas);
+      padding: 0.75rem 1rem;
+      font-weight: 700;
+      color: var(--color-slate-800);
+      border-bottom: 1px solid var(--color-border);
+    }
+    td {
+      padding: 0.875rem 1rem;
+      border-bottom: 1px solid var(--color-border);
+      vertical-align: middle;
+    }
+  </style>
+</head>
+<body style="background: var(--color-canvas);">
+
+  <!-- Admin Header -->
+  <header class="site-header" style="background:#ffffff; border-bottom:1px solid var(--color-border);">
+    <div class="container nav-container">
+      <a href="/admin" class="brand-wordmark">
+        <span class="title">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+          Houston Roofing Admin
+        </span>
+        <span class="tagline">Staff Operations Console</span>
+      </a>
+      <div style="display:flex; align-items:center; gap:1rem;">
+        <a href="/dashboard" class="btn btn-sm btn-flat-secondary">Customer Portal</a>
+        <a href="/" class="btn btn-sm btn-flat-secondary">Public Site</a>
+        <button id="admin-signout-btn" class="btn btn-sm btn-flat-secondary">Sign out</button>
+      </div>
+    </div>
+  </header>
+
+  <main style="padding: 2.5rem 0 5rem;">
+    <div class="container">
+      <!-- KPI Row -->
+      <section style="display:grid; grid-template-columns:repeat(auto-fit, minmax(200px, 1fr)); gap:1.25rem; margin-bottom:2.5rem;">
+        <div class="kpi-card">
+          <p style="font-size:0.75rem; font-weight:700; text-transform:uppercase; color:var(--color-text-muted);">Bookings This Week</p>
+          <div class="kpi-value" id="kpi-bookings-week">0</div>
+          <span style="font-size:0.75rem; color:var(--color-teal-600); font-weight:600;">Live Capacity Counter</span>
+        </div>
+
+        <div class="kpi-card">
+          <p style="font-size:0.75rem; font-weight:700; text-transform:uppercase; color:var(--color-text-muted);">Appt → Project Conversion</p>
+          <div class="kpi-value" id="kpi-conversion-rate">0%</div>
+          <span style="font-size:0.75rem; color:var(--color-text-muted);">Inspection closeout rate</span>
+        </div>
+
+        <div class="kpi-card">
+          <p style="font-size:0.75rem; font-weight:700; text-transform:uppercase; color:var(--color-text-muted);">Active Projects</p>
+          <div class="kpi-value" id="kpi-active-projects">0</div>
+          <span style="font-size:0.75rem; color:var(--color-teal-600); font-weight:600;">In pipeline</span>
+        </div>
+
+        <div class="kpi-card">
+          <p style="font-size:0.75rem; font-weight:700; text-transform:uppercase; color:var(--color-text-muted);">Open Storm Assessments</p>
+          <div class="kpi-value" id="kpi-storm-assessments">0</div>
+          <span style="font-size:0.75rem; color:var(--color-amber-600); font-weight:600;">Priority queue</span>
+        </div>
+
+        <div class="kpi-card">
+          <p style="font-size:0.75rem; font-weight:700; text-transform:uppercase; color:var(--color-text-muted);">Avg Days Per Stage</p>
+          <div class="kpi-value" id="kpi-avg-stage-days">2.4 d</div>
+          <span style="font-size:0.75rem; color:var(--color-text-muted);">Target: &lt; 3 days</span>
+        </div>
+      </section>
+
+      <!-- Admin Navigation Tabs -->
+      <div class="admin-nav-tabs">
+        <button class="admin-tab-btn active" data-tab="appointments">📅 Appointments Calendar</button>
+        <button class="admin-tab-btn" data-tab="projects">🔨 Active Projects &amp; Stages</button>
+        <button class="admin-tab-btn" data-tab="announcements">📢 Notices &amp; Storm Alerts</button>
+        <button class="admin-tab-btn" data-tab="users">👥 Customers Directory</button>
+        <button class="admin-tab-btn" data-tab="audit">📜 Audit Logs</button>
+      </div>
+
+      <!-- Pane 1: Appointments -->
+      <section id="pane-appointments" class="admin-tab-pane">
+        <div class="card-flat" style="padding:1.5rem; margin-bottom:1.5rem; display:flex; gap:1rem; flex-wrap:wrap; align-items:center; justify-content:space-between;">
+          <div style="display:flex; gap:1rem; flex-wrap:wrap; align-items:center;">
+            <div>
+              <label style="font-size:0.75rem; font-weight:700; text-transform:uppercase; display:block; margin-bottom:0.25rem;">Status</label>
+              <select id="filter-appt-status" class="form-select" style="min-height:36px; font-size:0.8125rem;">
+                <option value="all">All Statuses</option>
+                <option value="confirmed">Confirmed</option>
+                <option value="pending">Pending</option>
+                <option value="completed">Completed</option>
+                <option value="cancelled">Cancelled</option>
+              </select>
+            </div>
+
+            <div>
+              <label style="font-size:0.75rem; font-weight:700; text-transform:uppercase; display:block; margin-bottom:0.25rem;">Type</label>
+              <select id="filter-appt-type" class="form-select" style="min-height:36px; font-size:0.8125rem;">
+                <option value="all">All Types</option>
+                <option value="free-inspection">Free Inspection</option>
+                <option value="storm-assessment">Storm Assessment</option>
+                <option value="free-estimate">Free Estimate</option>
+                <option value="repair-visit">Repair Visit</option>
+                <option value="commercial-walkthrough">Commercial Walkthrough</option>
+              </select>
+            </div>
+
+            <div>
+              <label style="font-size:0.75rem; font-weight:700; text-transform:uppercase; display:block; margin-bottom:0.25rem;">Search</label>
+              <input type="text" id="filter-appt-search" class="form-input" placeholder="Search name, street, phone..." style="min-height:36px; font-size:0.8125rem;">
+            </div>
+          </div>
+        </div>
+
+        <div class="card-flat" style="padding:0; overflow-x:auto;">
+          <table>
+            <thead>
+              <tr>
+                <th>Customer</th>
+                <th>Service</th>
+                <th>Date &amp; Time</th>
+                <th>Address</th>
+                <th>Status</th>
+                <th>Actions</th>
+              </tr>
+            </thead>
+            <tbody id="admin-appointments-tbody">
+              <!-- Populated via admin.js -->
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <!-- Pane 2: Projects & Stage Progression -->
+      <section id="pane-projects" class="admin-tab-pane" style="display:none;">
+        <div style="margin-bottom:1.5rem; display:flex; justify-content:space-between; align-items:center;">
+          <div>
+            <h2 style="font-size:1.25rem; margin:0;">Active Project Pipeline</h2>
+            <p style="font-size:0.8125rem; color:var(--color-text-muted); margin:0;">Advance stages and upload on-site inspector notes.</p>
+          </div>
+        </div>
+
+        <div id="admin-projects-container">
+          <!-- Populated by admin.js -->
+        </div>
+      </section>
+
+      <!-- Pane 3: Announcements & Storm Alerts -->
+      <section id="pane-announcements" class="admin-tab-pane" style="display:none;">
+        <div style="display:grid; grid-template-columns:1fr 2fr; gap:1.5rem; align-items:flex-start;">
+          <!-- Quick Publisher (<30 seconds) -->
+          <div class="card-flat" style="padding:1.5rem;">
+            <h3 style="font-size:1.125rem; margin-bottom:0.5rem;">Publish Live Notice</h3>
+            <p style="font-size:0.8125rem; color:var(--color-text-muted); margin-bottom:1.25rem;">
+              Broadcast a storm watch, rain delay, or holiday schedule to the banner and customer bells in under 30 seconds.
+            </p>
+
+            <form id="new-notice-form">
+              <div class="form-group">
+                <label class="form-label" for="notice-title">Notice Title</label>
+                <input type="text" id="notice-title" name="title" class="form-input" required placeholder="E.g., Hail storm alert: priority slots open">
+              </div>
+
+              <div class="form-group">
+                <label class="form-label" for="notice-severity">Severity Level</label>
+                <select id="notice-severity" name="severity" class="form-select" required>
+                  <option value="storm">Storm (High priority violet)</option>
+                  <option value="schedule">Schedule / Rain Delay (Amber)</option>
+                  <option value="info">General Info (Sky Blue)</option>
+                  <option value="promo">Special Offer with confirmed dates (Emerald)</option>
+                </select>
+              </div>
+
+              <div class="form-group">
+                <label class="form-label" for="notice-body">Message Body</label>
+                <textarea id="notice-body" name="body" class="form-textarea" required placeholder="Description of advisory..." style="min-height:80px;"></textarea>
+              </div>
+
+              <div class="form-group">
+                <label style="display:flex; align-items:center; gap:0.5rem; font-size:0.875rem; cursor:pointer;">
+                  <input type="checkbox" name="pinned" id="notice-pinned">
+                  <span>Pin to top of site banner</span>
+                </label>
+              </div>
+
+              <button type="submit" class="btn btn-clay-primary" style="width:100%;">Publish Live Notice</button>
+            </form>
+          </div>
+
+          <!-- Existing Notices List -->
+          <div>
+            <h3 style="font-size:1.125rem; margin-bottom:1rem;">Active Announcements</h3>
+            <div id="admin-announcements-list">
+              <!-- Populated by admin.js -->
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Pane 4: Customers & CSV Export -->
+      <section id="pane-users" class="admin-tab-pane" style="display:none;">
+        <div class="card-flat" style="padding:1.5rem; margin-bottom:1.5rem; display:flex; justify-content:space-between; align-items:center;">
+          <div>
+            <h2 style="font-size:1.25rem; margin:0;">Customer Directory</h2>
+            <p style="font-size:0.8125rem; color:var(--color-text-muted); margin:0;">All registered clients and contact records.</p>
+          </div>
+          <a href="/api/admin/users/export" class="btn btn-sm btn-flat-dark">📥 Export CSV</a>
+        </div>
+
+        <div class="card-flat" style="padding:0; overflow-x:auto;">
+          <table>
+            <thead>
+              <tr>
+                <th>Customer Name</th>
+                <th>Email</th>
+                <th>Phone</th>
+                <th>Role</th>
+                <th>Member Since</th>
+              </tr>
+            </thead>
+            <tbody id="admin-users-tbody">
+              <!-- Populated by admin.js -->
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <!-- Pane 5: Audit Logs -->
+      <section id="pane-audit" class="admin-tab-pane" style="display:none;">
+        <div class="card-flat" style="padding:1.5rem;">
+          <h2 style="font-size:1.25rem; margin-bottom:0.5rem;">System &amp; Admin Audit Trail</h2>
+          <p style="font-size:0.8125rem; color:var(--color-text-muted); margin-bottom:1.5rem;">
+            Immutable history of stage updates, notices, and appointment status changes.
+          </p>
+          <div id="admin-audit-logs-list">
+            <!-- Populated by admin.js -->
+          </div>
+        </div>
+      </section>
+    </div>
+  </main>
+
+  <script type="module" src="/js/ui.js"></script>
+  <script type="module" src="/js/auth.js"></script>
+  <script type="module" src="/js/admin.js"></script>
+  <script type="module">
+    import { handleSignOut } from '/js/auth.js';
+    document.getElementById('admin-signout-btn')?.addEventListener('click', handleSignOut);
+  </script>
+</body>
+</html>

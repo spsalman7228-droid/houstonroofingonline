@@ -1,0 +1,70 @@
+{
+  "_readme": "Seed data for Firestore settings/* and announcements. Durations and hours are configurable defaults.",
+  "booking": {
+    "timezone": "America/Chicago",
+    "slotIntervalMinutes": 30,
+    "minLeadHours": 12,
+    "maxDaysAhead": 60,
+    "cancelOrRescheduleCutoffHours": 24,
+    "maxActiveAppointmentsPerUser": 3,
+    "weeklyHours": {
+      "mon": [["08:00", "18:00"]],
+      "tue": [["08:00", "18:00"]],
+      "wed": [["08:00", "18:00"]],
+      "thu": [["08:00", "18:00"]],
+      "fri": [["08:00", "18:00"]],
+      "sat": [["08:00", "16:00"]],
+      "sun": [["10:00", "16:00"]]
+    },
+    "blackoutDates": [
+      { "date": "2026-11-26", "reason": "Thanksgiving" },
+      { "date": "2026-12-25", "reason": "Christmas Day" },
+      { "date": "2027-01-01", "reason": "New Year's Day" }
+    ],
+    "appointmentTypes": [
+      { "key": "free-inspection", "label": "Free roof inspection", "durationMinutes": 60, "bufferMinutes": 30, "capacityPerSlot": 2, "autoConfirm": true, "audience": "residential", "description": "A full roof-system inspection with photos and a plain-language summary." },
+      { "key": "free-estimate", "label": "Free estimate", "durationMinutes": 60, "bufferMinutes": 30, "capacityPerSlot": 2, "autoConfirm": true, "audience": "residential", "description": "Review options and pricing for replacement, siding or metal." },
+      { "key": "storm-assessment", "label": "Storm or hail damage assessment", "durationMinutes": 90, "bufferMinutes": 30, "capacityPerSlot": 2, "autoConfirm": true, "audience": "residential", "description": "Photo-documented damage report you can share with your insurer." },
+      { "key": "repair-visit", "label": "Repair visit", "durationMinutes": 60, "bufferMinutes": 30, "capacityPerSlot": 1, "autoConfirm": false, "audience": "residential", "description": "Targeted visit for a leak or specific repair issue." },
+      { "key": "commercial-walkthrough", "label": "Commercial or multi-family walkthrough", "durationMinutes": 90, "bufferMinutes": 30, "capacityPerSlot": 1, "autoConfirm": false, "audience": "commercial", "description": "On-site survey for a business or multi-building property." },
+      { "key": "phone-consult", "label": "Phone consultation", "durationMinutes": 20, "bufferMinutes": 10, "capacityPerSlot": 3, "autoConfirm": true, "audience": "all", "description": "A quick call to talk through your situation." }
+    ],
+    "requiredFields": ["name", "phone", "email", "address.street", "address.zip", "propertyType", "serviceType"],
+    "optionalFields": ["notes", "howDidYouHear"],
+    "howDidYouHearOptions": ["Google search", "Google Ad", "Facebook", "Instagram", "Referral", "Radio", "TV", "Direct mail", "Other"],
+    "propertyTypes": ["Single-family home", "Townhome", "Commercial building", "Multi-family community", "Other"],
+    "consentText": { "version": "v1", "text": "I agree that Houston Roofing & Construction may contact me about this appointment." }
+  },
+  "stages": [
+    { "key": "request-received", "label": "Request received", "customerText": "We have your request and will confirm your appointment.", "icon": "inbox" },
+    { "key": "inspection-scheduled", "label": "Inspection scheduled", "customerText": "Your inspection is on the calendar.", "icon": "calendar" },
+    { "key": "inspection-complete", "label": "Inspection complete", "customerText": "We have inspected your roof. Photos and notes are on the way.", "icon": "search" },
+    { "key": "estimate-delivered", "label": "Estimate delivered", "customerText": "Your options and pricing are ready to review.", "icon": "file" },
+    { "key": "agreement-signed", "label": "Agreement signed", "customerText": "Thanks. We are preparing your project.", "icon": "check" },
+    { "key": "materials-permits", "label": "Permits and materials", "customerText": "We are handling permits and ordering materials.", "icon": "truck" },
+    { "key": "install-scheduled", "label": "Install scheduled", "customerText": "Your installation dates are set.", "icon": "calendar-check" },
+    { "key": "in-progress", "label": "Work in progress", "customerText": "Our crew is on site.", "icon": "hammer" },
+    { "key": "final-inspection", "label": "Final inspection", "customerText": "We are doing a final quality check and cleanup.", "icon": "clipboard" },
+    { "key": "warranty-registered", "label": "Warranty registered", "customerText": "Your warranty paperwork is submitted.", "icon": "shield" },
+    { "key": "complete", "label": "Complete", "customerText": "All done. We would love your feedback.", "icon": "star" }
+  ],
+  "announcementTemplates": [
+    { "key": "storm-watch", "severity": "storm", "title": "Storm watch: priority inspections open", "body": "Severe weather is in the forecast. Book a storm damage assessment and we will prioritize open slots as conditions allow." },
+    { "key": "post-storm", "severity": "storm", "title": "After the storm: schedule your assessment", "body": "If you saw hail, wind damage or leaks, book an assessment. Take photos and note the date of the storm." },
+    { "key": "rain-delay", "severity": "schedule", "title": "Weather delays possible this week", "body": "Rain may shift install dates. Your dashboard will show updates if your schedule changes." },
+    { "key": "holiday-hours", "severity": "info", "title": "Holiday scheduling", "body": "Online booking is closed on the dates shown. You can still book any open day." },
+    { "key": "hurricane-season", "severity": "info", "title": "Hurricane season prep", "body": "The Atlantic hurricane season runs June 1 to November 30. A pre-season inspection can catch loose flashing, lifted shingles and clogged drainage." }
+  ],
+  "notificationTemplates": {
+    "bookingConfirmed": "Your {{type}} is confirmed for {{date}} at {{time}}.",
+    "bookingChanged": "Your appointment was moved to {{date}} at {{time}}.",
+    "bookingCancelled": "Your appointment on {{date}} was cancelled.",
+    "stageAdvanced": "Project update: {{stage}}. {{note}}",
+    "newNotice": "New notice: {{title}}",
+    "reviewInvite": "Your project is complete. Tell us how we did."
+  },
+  "roles": { "customer": "default", "staff": "manage bookings and projects", "admin": "everything plus settings and users" },
+  "formDefaults": {
+    "adminKpis": ["Bookings this week", "Appointment to project conversion", "Average days per stage", "Open storm assessments"]
+  }
+}

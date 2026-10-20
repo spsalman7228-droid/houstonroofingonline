@@ -1,0 +1,98 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+
+    // Helper functions
+    function isAuthenticated() {
+      return request.auth != null;
+    }
+
+    function isOwner(uid) {
+      return isAuthenticated() && request.auth.uid == uid;
+    }
+
+    function isStaff() {
+      return isAuthenticated() && (request.auth.token.role == 'staff' || request.auth.token.role == 'admin');
+    }
+
+    function isAdmin() {
+      return isAuthenticated() && request.auth.token.role == 'admin';
+    }
+
+    // Default deny all
+    match /{document=**} {
+      allow read, write: if false;
+    }
+
+    // Users collection
+    // Customers can read only their own profile. Cannot self-escalate role.
+    // Writes are managed strictly through server API / Admin SDK or strictly validated for safe profile fields.
+    match /users/{uid} {
+      allow read: if isOwner(uid) || isStaff();
+      allow create, update: if (isOwner(uid) && !request.resource.data.diff(resource.data).affectedKeys().hasAny(['role'])) || isAdmin();
+      allow delete: if isAdmin();
+
+      // Notifications subcollection
+      match /notifications/{nid} {
+        allow read: if isOwner(uid) || isStaff();
+        // Customers can mark notifications as read (only 'read' field update)
+        allow update: if isOwner(uid) && request.resource.data.diff(resource.data).affectedKeys().hasOnly(['read']);
+        allow create, delete: if isStaff();
+      }
+    }
+
+    // Appointments collection
+    // Customers can read their own appointments; all writes are done via server API (Admin SDK)
+    match /appointments/{appointmentId} {
+      allow read: if (isAuthenticated() && resource.data.uid == request.auth.uid) || isStaff();
+      allow write: if isStaff(); // Customers must use server API for atomic slot validation
+    }
+
+    // Slots collection: private system capacity table, only staff can read/write directly; clients use /api/slots
+    match /slots/{slotKey} {
+      allow read, write: if isStaff();
+    }
+
+    // Projects collection
+    // Customers can read their own projects. Cannot create or edit projects directly.
+    match /projects/{projectId} {
+      allow read: if (isAuthenticated() && resource.data.uid == request.auth.uid) || isStaff();
+      allow write: if isStaff();
+
+      // Project events subcollection
+      // Customers can read only events where visibleToCustomer == true
+      match /events/{eventId} {
+        allow read: if isStaff() || (
+          isAuthenticated() &&
+          get(/databases/$(database)/documents/projects/$(projectId)).data.uid == request.auth.uid &&
+          resource.data.visibleToCustomer == true
+        );
+        allow write: if isStaff();
+      }
+    }
+
+    // Announcements collection: public read for active notices
+    match /announcements/{announcementId} {
+      allow read: if true;
+      allow write: if isStaff();
+    }
+
+    // Reviews collection: public read for approved reviews
+    match /reviews/{reviewId} {
+      allow read: if resource.data.status == 'approved' || isStaff() || (isAuthenticated() && resource.data.uid == request.auth.uid);
+      allow create: if isAuthenticated() && request.resource.data.uid == request.auth.uid;
+      allow update, delete: if isStaff();
+    }
+
+    // Settings collection: public read for business and booking parameters
+    match /settings/{docId} {
+      allow read: if true;
+      allow write: if isAdmin();
+    }
+
+    // Audit logs: admin only
+    match /auditLogs/{logId} {
+      allow read, write: if isAdmin();
+    }
+  }
+}
