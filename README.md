@@ -34,9 +34,9 @@ To eliminate generic "AI slop" and deliver an intentional, domain-appropriate ae
 ## Allowed Services Boundary
 
 Strictly limited to:
-- **GitHub**: Code repository and continuous automated testing (`.github/workflows/test.yml`).
+- **GitHub**: Source code repository and version control.
 - **Vercel**: Serverless Express backend and static asset hosting from `/public` via `vercel.json`.
-- **Firebase**: Authentication (Google + Phone OTP) and Cloud Firestore for persistence.
+- **Firebase**: Authentication (Google + Phone) and Cloud Firestore for persistence.
 - **Zero Third-Party Communication Services**: No Twilio, Resend, SendGrid, or Stripe. Notifications are exclusively delivered in-app, and calendar events are exported via Google Calendar links and RFC 5545 `.ics` downloads.
 
 ***
@@ -56,7 +56,6 @@ Firebase client configuration is stored publicly in `public/js/firebase-config.j
 
 1. **GitHub Setup**:
    - Create a GitHub repository and push code to the `main` branch.
-   - The included workflow `.github/workflows/test.yml` automatically executes `npm test` on every pull request.
 
 2. **Firebase Setup**:
    - Go to [Firebase Console](https://console.firebase.google.com/) and create a project.
