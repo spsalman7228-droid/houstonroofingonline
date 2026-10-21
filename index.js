@@ -76,9 +76,9 @@ app.use((req, res) => {
   res.status(404).sendFile(path.join(publicPath, '404.html'));
 });
 
-// Start listener when running directly
+// Start listener when running directly (standalone mode), not when imported by Vercel serverless
 const PORT = process.env.PORT || 3000;
-if (require.main === module || process.env.NODE_ENV !== 'production') {
+if (require.main === module && !process.env.VERCEL) {
   app.listen(PORT, '0.0.0.0', () => {
     console.log(`Houston Roofing & Construction platform running on http://0.0.0.0:${PORT}`);
   });

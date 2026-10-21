@@ -2,22 +2,14 @@
   "version": 2,
   "cleanUrls": true,
   "functions": {
-    "index.js": {
+    "api/index.js": {
       "maxDuration": 15
     }
   },
-  "routes": [
+  "rewrites": [
     {
-      "src": "/api/(.*)",
-      "dest": "/index.js"
-    },
-    {
-      "handle": "filesystem"
-    },
-    {
-      "src": "/(.*)",
-      "status": 404,
-      "dest": "/404.html"
+      "source": "/api/(.*)",
+      "destination": "/api"
     }
   ],
   "headers": [
