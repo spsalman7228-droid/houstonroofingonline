@@ -1,6 +1,11 @@
 /**
  * public/js/ui.js
- * Shared client UI controller: scroll reveals, toast notifications, notice banners, and counters.
+ * Shared client UI controller:
+ * - Mathematical smooth page transitions with brand logo overlay
+ * - Scroll reveals with spring/quintic physics
+ * - Toast notifications
+ * - Live notice banner
+ * - Counter animations
  */
 
 // Show floating toast
@@ -24,6 +29,82 @@ export function showToast(message, type = 'info') {
     toast.style.transition = 'all 0.3s ease';
     setTimeout(() => toast.remove(), 300);
   }, 4000);
+}
+
+// -------------------------------------------------------------
+// Advanced Mathematical Page Transitions with Brand Logo
+// -------------------------------------------------------------
+export function initPageTransitions() {
+  let curtain = document.getElementById('page-transition-curtain');
+  if (!curtain) {
+    curtain = document.createElement('div');
+    curtain.id = 'page-transition-curtain';
+    curtain.className = 'page-transition-curtain';
+    curtain.innerHTML = `
+      <div class="transition-logo-badge">
+        <div class="transition-logo-icon-wrap">
+          <svg class="transition-logo-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/>
+            <path d="M9 22V12h6v10"/>
+          </svg>
+        </div>
+        <div class="transition-logo-text">Houston Roofing</div>
+        <div class="transition-tagline">&amp; Construction</div>
+      </div>
+    `;
+    document.body.appendChild(curtain);
+  }
+
+  // Smooth entry reveal: display logo for 300ms, then smoothly fade out curtain
+  setTimeout(() => {
+    curtain.classList.add('is-hidden');
+  }, 300);
+
+  // Handle bfcache back/forward navigation
+  window.addEventListener('pageshow', (e) => {
+    if (e.persisted) {
+      curtain.classList.add('is-hidden');
+      curtain.classList.remove('is-entering');
+    }
+  });
+
+  // Intercept internal navigation link clicks
+  document.addEventListener('click', (e) => {
+    const anchor = e.target.closest('a');
+    if (!anchor) return;
+
+    const href = anchor.getAttribute('href');
+    if (!href) return;
+
+    // Skip external links, hash anchors, mailto, tel, downloads, or target="_blank"
+    if (
+      href.startsWith('#') ||
+      href.startsWith('mailto:') ||
+      href.startsWith('tel:') ||
+      href.startsWith('javascript:') ||
+      anchor.getAttribute('target') === '_blank' ||
+      anchor.hasAttribute('download') ||
+      href.includes('ics') ||
+      href.includes('/api/')
+    ) {
+      return;
+    }
+
+    // Only apply to same-origin pages
+    if (href.startsWith('/') || href.startsWith(window.location.origin)) {
+      const url = new URL(href, window.location.origin);
+      if (url.origin === window.location.origin && url.pathname !== window.location.pathname) {
+        e.preventDefault();
+        curtain.classList.remove('is-hidden');
+        curtain.classList.add('is-entering');
+
+        // Allow logo badge to remain visible for 340ms during mathematical easing transition
+        setTimeout(() => {
+          window.location.href = href;
+        }, 340);
+      }
+    }
+  });
 }
 
 // Initialize scroll reveal
@@ -57,7 +138,6 @@ export async function initNoticeBanner() {
     const { notices } = await res.json();
     if (!notices || notices.length === 0) return;
 
-    // Highest severity: storm > schedule > info > promo
     const highest = notices[0];
     bannerContainer.innerHTML = `
       <div class="notice-banner severity-${highest.severity || 'info'}">
@@ -126,6 +206,7 @@ export function initCounters() {
 
 // Document Ready Initialization
 document.addEventListener('DOMContentLoaded', () => {
+  initPageTransitions();
   initHeaderScroll();
   initScrollReveal();
   initNoticeBanner();

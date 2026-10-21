@@ -194,8 +194,9 @@ async function loadAdminProjects() {
         <div style="display:flex; justify-content:space-between; align-items:flex-start; margin-bottom:0.75rem; flex-wrap:wrap; gap:0.5rem;">
           <div>
             <h3 style="font-size:1.125rem; margin:0 0 0.25rem;">${p.title}</h3>
-            <p style="font-size:0.8125rem; color:var(--color-text-muted); margin:0;">
-              📍 ${p.address?.street || ''}, ${p.address?.city || ''} · Started ${new Date(p.startedAt).toLocaleDateString()}
+            <p style="font-size:0.8125rem; color:var(--color-text-muted); margin:0; display:flex; align-items:center; gap:0.375rem;">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+              <span>${p.address?.street || ''}, ${p.address?.city || ''} · Started ${new Date(p.startedAt).toLocaleDateString()}</span>
             </p>
           </div>
           <span style="font-size:0.75rem; font-weight:700; text-transform:uppercase; color:var(--color-teal-600); background:var(--color-teal-50); padding:4px 10px; border-radius:6px; border:1px solid var(--color-teal-500);">
@@ -286,7 +287,7 @@ async function loadAdminAnnouncements() {
               ${a.severity}
             </span>
             <strong style="color:var(--color-slate-900);">${a.title}</strong>
-            ${a.pinned ? `<span style="font-size:0.6875rem; color:#dc2626; font-weight:700;">📌 Pinned</span>` : ''}
+            ${a.pinned ? `<span style="font-size:0.6875rem; color:#dc2626; font-weight:700; display:inline-flex; align-items:center; gap:3px;"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="12" y1="17" x2="12" y2="22"/><path d="M5 17h14v-1.76a2 2 0 0 0-1.11-1.79l-1.78-.9A2 2 0 0 1 15 10.76V6h1a2 2 0 0 0 0-4H8a2 2 0 0 0 0 4h1v4.76a2 2 0 0 1-1.11 1.79l-1.78.9A2 2 0 0 0 5 15.24Z"/></svg> Pinned</span>` : ''}
           </div>
           <p style="font-size:0.8125rem; color:var(--color-text-muted); margin:0;">${a.body}</p>
         </div>

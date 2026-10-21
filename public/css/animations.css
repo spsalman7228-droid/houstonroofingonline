@@ -1,13 +1,116 @@
 /**
  * public/css/animations.css
- * Lightweight CSS animations (<20KB), scroll reveals, and micro-interactions.
+ * Lightweight CSS animations, advanced mathematical transitions, and micro-interactions.
  */
 
-/* Scroll Reveal */
+:root {
+  /* Advanced Mathematical Easing Curves */
+  --ease-fluid: cubic-bezier(0.16, 1, 0.3, 1);        /* Damped quintic spring curve */
+  --ease-elastic: cubic-bezier(0.34, 1.56, 0.64, 1);  /* Natural elastic rebound */
+  --ease-exponential: cubic-bezier(0.22, 1, 0.36, 1);  /* Smooth exponential decay */
+  --ease-exit: cubic-bezier(0.7, 0, 0.3, 1);          /* Exponential acceleration exit */
+}
+
+/* -------------------------------------------------------------
+ * 1. SMOOTH PAGE TRANSITION CURTAIN WITH VISIBLE LOGO
+ * ------------------------------------------------------------- */
+.page-transition-curtain {
+  position: fixed;
+  inset: 0;
+  z-index: 99999;
+  background: rgba(15, 23, 42, 0.92);
+  backdrop-filter: blur(24px) saturate(190%);
+  -webkit-backdrop-filter: blur(24px) saturate(190%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem;
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+  transition: opacity 0.36s var(--ease-exponential), visibility 0.36s var(--ease-exponential);
+}
+
+.page-transition-curtain.is-hidden {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+}
+
+.page-transition-curtain.is-entering {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+}
+
+.transition-logo-badge {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem 2.5rem;
+  background: rgba(30, 41, 59, 0.85);
+  border: 1px solid rgba(245, 158, 11, 0.35);
+  border-radius: 20px;
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.6), 0 0 40px rgba(245, 158, 11, 0.2);
+  animation: logoBadgeAppear 0.42s var(--ease-elastic) forwards;
+}
+
+.transition-logo-icon-wrap {
+  width: 58px;
+  height: 58px;
+  background: linear-gradient(135deg, rgba(245, 158, 11, 0.25) 0%, rgba(217, 119, 6, 0.1) 100%);
+  border: 1px solid rgba(245, 158, 11, 0.5);
+  border-radius: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 0.75rem;
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.3), inset 0 1px 1px rgba(255, 255, 255, 0.25);
+}
+
+.transition-logo-icon {
+  width: 34px;
+  height: 34px;
+  color: var(--color-amber-500);
+}
+
+.transition-logo-text {
+  font-family: var(--font-serif);
+  color: #ffffff;
+  font-size: 1.375rem;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+}
+
+.transition-tagline {
+  font-size: 0.75rem;
+  color: var(--color-amber-500);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  margin-top: 0.25rem;
+}
+
+@keyframes logoBadgeAppear {
+  0% {
+    transform: scale(0.82) translateY(8px);
+    opacity: 0;
+  }
+  100% {
+    transform: scale(1) translateY(0);
+    opacity: 1;
+  }
+}
+
+/* -------------------------------------------------------------
+ * 2. SCROLL REVEAL & STAGGER DELAYS
+ * ------------------------------------------------------------- */
 .reveal-on-scroll {
   opacity: 0;
   transform: translateY(24px);
-  transition: opacity 0.6s cubic-bezier(0.16, 1, 0.3, 1), transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+  transition: opacity 0.55s var(--ease-fluid), transform 0.55s var(--ease-fluid);
   will-change: opacity, transform;
 }
 
@@ -16,13 +119,14 @@
   transform: translateY(0);
 }
 
-/* Stagger Delays */
-.stagger-1 { transition-delay: 0.1s; }
-.stagger-2 { transition-delay: 0.2s; }
-.stagger-3 { transition-delay: 0.3s; }
-.stagger-4 { transition-delay: 0.4s; }
+.stagger-1 { transition-delay: 0.08s; }
+.stagger-2 { transition-delay: 0.16s; }
+.stagger-3 { transition-delay: 0.24s; }
+.stagger-4 { transition-delay: 0.32s; }
 
-/* Subtle Floating Atmosphere */
+/* -------------------------------------------------------------
+ * 3. SKELETON, SPINNERS & AMBIENT MOTION
+ * ------------------------------------------------------------- */
 @keyframes floatGentle {
   0%, 100% {
     transform: translateY(0);
@@ -36,7 +140,6 @@
   animation: floatGentle 6s ease-in-out infinite;
 }
 
-/* Skeleton Loading Shimmer */
 .skeleton {
   background: linear-gradient(90deg, #f1f5f9 25%, #e2e8f0 50%, #f1f5f9 75%);
   background-size: 200% 100%;
@@ -45,15 +148,10 @@
 }
 
 @keyframes shimmer {
-  0% {
-    background-position: 200% 0;
-  }
-  100% {
-    background-position: -200% 0;
-  }
+  0% { background-position: 200% 0; }
+  100% { background-position: -200% 0; }
 }
 
-/* Spinner */
 .spinner {
   width: 18px;
   height: 18px;
@@ -65,13 +163,14 @@
 }
 
 @keyframes spin {
-  to {
-    transform: rotate(360deg);
-  }
+  to { transform: rotate(360deg); }
 }
 
 /* Reduced Motion Override */
 @media (prefers-reduced-motion: reduce) {
+  .page-transition-curtain {
+    display: none !important;
+  }
   .reveal-on-scroll {
     opacity: 1 !important;
     transform: none !important;
