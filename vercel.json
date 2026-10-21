@@ -1,7 +1,6 @@
 {
   "version": 2,
   "cleanUrls": true,
-  "regions": ["dfw1"],
   "functions": {
     "index.js": {
       "maxDuration": 15
