@@ -1,5 +1,7 @@
 {
   "version": 2,
+  "framework": null,
+  "outputDirectory": "public",
   "cleanUrls": true,
   "functions": {
     "api/index.js": {
